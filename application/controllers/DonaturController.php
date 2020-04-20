@@ -106,9 +106,28 @@ class DonaturController extends CI_Controller {
 
 	public function detail_request($id)
 	{
-		
+		$data['request'] = $this->query->find('request', $id);
+		$data['penerima'] = $this->query->find('user', $data['request']->user_id);
+		$data['pengirim'] = $this->query->find('user', $data['request']->user_pengirim);
+		$data['donatur'] = $this->query->find('user', $data['request']->user_donatur);
+		$this->slice->view('dashboard.donasi.detail_request', $data);
 	}
 
+	public function terima($id)
+	{
+		date_default_timezone_set('Asia/Jakarta'); 
+		$this->db->set('status', 2);
+		$this->db->set('tanggal_verif', date("Y-m-d H:i:s"));
+        $this->db->where('id', $id);
+		$status = $this->db->update('request');
+		if(!$status){
+			$this->session->set_flashdata('message', array('type' => 'error', 'message' => [validation_errors()]));
+		}
+		else{
+			$this->session->set_flashdata('message', array('type' => 'success', 'message' => ['Tanda Terima Berhasil']));
+		}
+		return redirect(base_url('DonaturController/list_request'));	
+	}
 }
 
 /* End of file DonaturController.php */

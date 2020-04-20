@@ -67,9 +67,10 @@
                         </td>
                         <td class="text-center" style="min-width: 260px">
                             <span>
-                                <!-- @if($data->status != 0) -->
                                 <a href="{{ base_url('DonaturController/detail_request/'.$data->id) }}" class="btn btn-sm btn-primary mr-2"><i class="fa fa-refresh mr-2"></i>Detail</a>
-                                <!-- @endif -->
+                                @if($data->status == 1)
+                                <a href="{{ base_url('DonaturController/terima/'.$data->id) }}" class="btn btn-sm btn-danger mr-2"><i class="fa fa-refresh mr-2"></i>Terima</a>
+                                @endif
                                 <!-- <button value="{{ base_url('AdminController/deleteUser/'.$data->id) }}" class="btn btn-sm btn-danger hapus-satu"><i class="fa fa-trash mr-2"></i>Hapus</button> -->
                             </span>
                         </td>
