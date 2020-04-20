@@ -44,6 +44,11 @@
                 'email' => $data['email'],
                 'no_telp' => $data['telp'],
                 'alamat' => $data['alamat'],
+                // 'foto_kk' => $data['foto_kk'],
+                // 'foto_ktp' => $data['foto_ktp'],
+                // 'foto_depan_rumah' => $data['foto_depan_rumah'],
+                'longitude' => $data['longitude'],
+                'latitude' => $data['latitude'],
             ];
             $this->db->where('email',$id);
             try{

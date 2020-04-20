@@ -81,72 +81,23 @@
                     </a>
                 </li>
 
-                @if($this->session->user_login['role'] == 1)
+                @if($this->session->user_login['role'] == "Donatur")
                 <!-- <li class="nav-main-heading"><span class="sidebar-mini-visible">UI</span><span class="sidebar-mini-hidden">Receptionist</span></li> -->
-                <li class="nav-main-heading"><span class="sidebar-mini-visible">UI</span><span class="sidebar-mini-hidden">User</span></li>
-                <!-- <li class="nav-main-heading"><span class="sidebar-mini-visible">UI</span><span class="sidebar-mini-hidden">Dokter</span></li> -->
-                <!-- <li>
-                    <a href="{{ base_url('AdminController/userPetugas') }}" class="
-                        @if($this->router->fetch_class() == 'AdminController' && ($this->router->fetch_method() == 'userPetugas' || $this->router->fetch_method() == 'tambahUser' || $this->router->fetch_method() == 'resetPassword'))
+                <li class="nav-main-heading"><span class="sidebar-mini-visible">UI</span><span class="sidebar-mini-hidden">Donatur</span></li>
+                <li>
+                    <a href="{{ base_url('DonaturController/create') }}" class="
+                        @if($this->router->fetch_class() == 'DonaturController')
                             active
                         @endif">
-                        <i class="fa fa-user"></i><span class="sidebar-mini-hide">Manajemen Pasien</span>
-                    </a>
-                </li> -->
-                <!-- <li>
-                    <a href="{{ base_url('AdminController/userPetugas') }}" class="
-                        @if($this->router->fetch_class() == 'AdminController' && ($this->router->fetch_method() == 'userPetugas' || $this->router->fetch_method() == 'tambahUser' || $this->router->fetch_method() == 'resetPassword'))
-                            active
-                        @endif">
-                        <i class="fa fa-user"></i><span class="sidebar-mini-hide">Manajemen Dokter</span>
-                    </a>
-                </li> -->
-                <!-- <li>
-                    <a href="{{ base_url('AdminController/userPetugas') }}" class="
-                        @if($this->router->fetch_class() == 'AdminController' && ($this->router->fetch_method() == 'userPetugas' || $this->router->fetch_method() == 'tambahUser' || $this->router->fetch_method() == 'resetPassword'))
-                            active
-                        @endif">
-                        <i class="fa fa-pencil"></i><span class="sidebar-mini-hide">Input Hasil Check Up Pasien</span>
-                    </a>
-                </li> -->
-                <!-- <li>
-                    <a href="{{ base_url('BarangController/index') }}" class="
-                        @if($this->router->fetch_class() == 'BarangController')
-                            active
-                        @endif">
-                        <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Manajemen Barang</span>
-                    </a>
-                </li> -->
-                <!-- <li>
-                    <a href="{{ base_url('TransaksiController/index') }}" class="
-                        @if($this->router->fetch_class() == 'TransaksiController')
-                            active
-                        @endif">
-                        <i class="fa fa-credit-card "></i><span class="sidebar-mini-hide">Manajemen Transaksi Cek Kesehatan</span>
+                        <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Tambah Donasi</span>
                     </a>
                 </li>
                 <li>
-                    <a href="{{ base_url('LaporanController/index') }}" class="
-                        @if($this->router->fetch_class() == 'LaporanController')
+                    <a href="{{ base_url('DonaturController/index') }}" class="
+                        @if($this->router->fetch_class() == 'DonaturController')
                             active
                         @endif">
-                        <i class="fa fa-print"></i><span class="sidebar-mini-hide">Laporan Transaksi</span>
-                    </a>
-                </li> -->
-                <li>
-                    <a href="{{ base_url('BarangController/index') }}" class="
-                        @if($this->router->fetch_class() == 'BarangController')
-                            active
-                        @endif">
-                        <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Hasil Tes Terkini</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ base_url('BarangController/index') }}" class="
-                        @if($this->router->fetch_class() == 'BarangController')
-                            active
-                        @endif">
-                        <i class="fa fa-file-text"></i><span class="sidebar-mini-hide">Riwayat Tes</span>
+                        <i class="fa fa-file-text"></i><span class="sidebar-mini-hide">Riwayat Donasi</span>
                     </a>
                 </li>
                 <li>

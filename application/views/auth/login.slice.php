@@ -55,6 +55,11 @@
                         <button type="submit" class="btn btn-sm btn-hero btn-alt-primary">
                             <i class="si si-login mr-10"></i> Masuk
                         </button>
+                        <!-- <button type="" class="btn btn-sm btn-hero btn-alt-primary"> -->
+                          <a href="{{ base_url('Auth/register') }}" class="btn btn-sm btn-hero btn-alt-success">
+                             <i class="si si-login mr-10"></i> Buat Akun
+                          </a>
+                        <!-- </button> -->
                     </div>
                 </form>
             </div>

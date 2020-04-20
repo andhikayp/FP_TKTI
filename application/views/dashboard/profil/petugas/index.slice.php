@@ -107,7 +107,7 @@
                             @if($petugas->is_verif == 1)
                                 Terverifikasi
                             @else 
-                                Belum Diverfikasi
+                                Belum Diverifikasi
                             @endif
                         </b></div>
                     </div>

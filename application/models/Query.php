@@ -20,7 +20,14 @@ class Query extends CI_Model {
 		return $query->first_row();
 	}
 
-	
+	public function get_donasi_id($id)
+	{
+		$this->db->select('*');
+		$this->db->from('donasi');
+		$this->db->where('user_id', $id);
+		$query = $this->db->get();
+		return $query->result();
+	}
 }
 
 /* End of file Query.php */

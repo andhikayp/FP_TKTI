@@ -66,12 +66,29 @@ class Auth extends CI_Controller {
 				'is_verif' => $user->is_verif,
 			);
 			$this->session->set_userdata('user_login',$data_session);
-			$this->slice->view('dashboard/index');
+			if ($user->latitude) {
+				$this->slice->view('dashboard/index');
+			}
+			else {
+				redirect(base_url("PetugasController/editProfil"));
+			}
 		} 
 		else 
 		{ 
 			$this->session->set_flashdata('message', array('type' => 'error', 'message' => ["Email atau password tidak sesuai"]));
 			redirect(base_url("auth/index")); 
 		} 
+	}
+
+	public function register()
+	{
+		$this->slice->view('auth.register');
+	}
+
+	public function save()
+	{
+		$this->db->insert('user', $this->input->post());
+		$this->session->set_flashdata('message', array('type' => 'success', 'message' => ["Akun berhasil dibuat"]));
+		$this->slice->view('auth/login');
 	}
 }
