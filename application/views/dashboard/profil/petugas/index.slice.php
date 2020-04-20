@@ -115,7 +115,7 @@
                 <div class="form-group row">
                     <div class="col-md-9">
                         <div class="form-control-plaintext"><i class="fa fa-arrow-right mr-5"></i><b>
-                        @if($petugas->is_verif == 0 and $petugas->role == "Admin")
+                        @if($petugas->is_verif == 0 and $this->session->user_login['role'] == "Admin")
                         <a href="{{ base_url('PetugasController/verifikasi/'.$petugas->id) }}" class="btn btn-sm btn-danger mr-2"><i class="fa fa-refresh mr-2"></i>Verifikasi</a>
                         @endif  
                         </b></div>
@@ -123,6 +123,43 @@
                 </div>
             </div>
         </div>
+        <div class="form-group row">
+            <div class="col-12">
+                <label class="col-12">Lokasi Tempat Tinggal</label>
+                <div id="map" style="height: 500px"></div>
+            </div>
+        </div>
     </div>
 </div>
+@endsection
+@section('moreJS')
+<script src="<?php echo base_url(); ?>codebase/src/assets/js/plugins/select2/js/select2.full.min.js"></script>
+<script>jQuery(function(){ Codebase.helpers('select2'); });</script>
+
+<script>
+    function handleEvent(event) {
+        document.getElementById('latitude').value = event.latLng.lat();
+        document.getElementById('longitude').value = event.latLng.lng();
+    }
+
+    function initMap() {
+        var latnya = {{ $petugas->latitude }};
+        var longinya = {{ $petugas->longitude }};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: {lat: parseFloat(latnya), lng: parseFloat(longinya)}
+        });
+        var geocoder = new google.maps.Geocoder();
+
+        var marker = new google.maps.Marker({
+            map: map,
+            draggable: true,
+            position: {lat: parseFloat(latnya), lng: parseFloat(longinya)}
+        });
+
+        marker.addListener('drag', handleEvent);
+    }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTnAg_gwZ-GQxB6xC0h2cY4TDFYU28ov8&callback=initMap"></script>
 @endsection

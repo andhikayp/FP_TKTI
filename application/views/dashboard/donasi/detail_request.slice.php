@@ -113,6 +113,43 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-12">
+                <label class="col-12">Lokasi Pengiriman</label>
+                <div id="map" style="height: 500px"></div>
+            </div>
+        </div>
     </div>
 </div>
+@endsection
+@section('moreJS')
+<script src="<?php echo base_url(); ?>codebase/src/assets/js/plugins/select2/js/select2.full.min.js"></script>
+<script>jQuery(function(){ Codebase.helpers('select2'); });</script>
+
+<script>
+    function handleEvent(event) {
+        document.getElementById('latitude').value = event.latLng.lat();
+        document.getElementById('longitude').value = event.latLng.lng();
+    }
+
+    function initMap() {
+        var latnya = {{ $request->latitude }};
+        var longinya = {{ $request->longitude }};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: {lat: parseFloat(latnya), lng: parseFloat(longinya)}
+        });
+        var geocoder = new google.maps.Geocoder();
+
+        var marker = new google.maps.Marker({
+            map: map,
+            draggable: true,
+            position: {lat: parseFloat(latnya), lng: parseFloat(longinya)}
+        });
+
+        marker.addListener('drag', handleEvent);
+    }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTnAg_gwZ-GQxB6xC0h2cY4TDFYU28ov8&callback=initMap"></script>
 @endsection
