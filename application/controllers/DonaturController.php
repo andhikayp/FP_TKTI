@@ -71,6 +71,44 @@ class DonaturController extends CI_Controller {
 		return redirect(base_url('DonaturController/index'));	
 	}
 
+	public function request()
+	{
+		if ($_SERVER['REQUEST_METHOD'] == "GET"){
+			$this->slice->view('dashboard.donasi.request');
+		}
+		elseif($_SERVER['REQUEST_METHOD'] == "POST"){
+			$status = $this->db->insert('request', $this->input->post());
+			if(!$status){
+				$this->session->set_flashdata('message', array('type' => 'error', 'message' => [validation_errors()]));
+				$this->session->set_flashdata('post_data', $this->input->post(NULL, TRUE));
+				return redirect(base_url('DonaturController/request'));	
+			}
+			else{
+				$this->session->set_flashdata('message', array('type' => 'success', 'message' => ['Request Makanan Berhasil Dilakukan. Tunggu Notifikasi Lebih Lanjut']));
+				return redirect(base_url('DonaturController/list_request'));	
+			}
+		}
+		else{
+			show_error("Method Not Allowed", 405);
+		}
+	}
+
+	public function list_request()
+	{
+		if ($this->session->user_login['role'] == "Penerima Makanan") {
+			$data['donasi'] = $this->query->get_request_id($this->session->user_login['id']);
+		}
+		else {
+			$data['donasi'] = $this->query->all('request');
+		}
+		$this->slice->view('dashboard.donasi.list_request', $data);
+	}
+
+	public function detail_request($id)
+	{
+		
+	}
+
 }
 
 /* End of file DonaturController.php */

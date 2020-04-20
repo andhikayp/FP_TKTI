@@ -1,5 +1,5 @@
 @extends('layouts.base.app')
-@section('title', ' Edit Profil Petugas')
+@section('title', ' Tambah Permintaan Makanan')
 
 @section('sidebar')
     @include('layouts.base.sidebar')
@@ -10,16 +10,6 @@
 @endsection
 
 @section('content')
-<style>
-  #map {
-    height: 100%;
-  }
-  html, body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
-</style>
 <div class="col-12 mb-2 mt-2">
     @if($this->session->flashdata('message')) 
         @if($this->session->flashdata('message')['type'] == 'error')
@@ -36,105 +26,74 @@
 
 <nav class="breadcrumb bg-white push">
     <a class="breadcrumb-item" href="{{ base_url('/') }}">Dashboard</a>
-    <a class="breadcrumb-item" href="{{ base_url('PetugasController/indexProfil') }}">Profil</a>
-    <span class="breadcrumb-item active">Edit Profil</span>
+    <!-- <a class="breadcrumb-item" href="{{ base_url('AdminController/userPetugas') }}">Data Petugas Kasir</a> -->
+    <span class="breadcrumb-item active">Tambah Permintaan Makanan</span>
 </nav>
 <div class="block">
     <div class="block-header block-header-default bg-primary">
-        <h3 class="block-title">Edit Profil</h3>
+        <h3 class="block-title">Tambah Permintaan Makanan</h3>
     </div>
     <div class="block-content">
-        <form class="js-validation-signup px-30" method="POST" enctype="multipart/form-data" action="{{ base_url('PetugasController/editProfil') }}" aria-label="">
+        <div><b>
+            Waiting List Permintaan makanan berlaku sampai 5 jam kedepan. Setelah itu Anda dapat melakukan request makanan lagi</b>
+        </div>
+        <form class="js-validation-bootstrap px-30" method="POST" enctype="multipart/form-data" action="{{ base_url('DonaturController/request') }}" aria-label="">
+            <div class="form-group row">
+                <div class="col-12">
+                    <input type="text" hidden class="form-control" id="user_id" name="user_id" value="{{ $this->session->user_login['id'] }}">
+                    <input type="text" hidden class="form-control" id="tanggal_request" name="tanggal_request" value="<?php date_default_timezone_set('Asia/Jakarta'); echo date("Y-m-d H:i:s"); ?>">
+                    
+                    <!-- <div class="form-material form-material-primary floating open">
+                        <select class="form-control pilih_barang" id="kategori" name="kategori" required>
+                            <option value="">Kategori </option>
+                            <option value="Uang">Uang</option>
+                            <option value="Makanan">Makanan</option>
+                        </select>
+                    </div> -->
+                </div>
+                <div class="col-12">
+                    <div class="form-material form-material-primary floating input-group">
+                        <input type="text" class="form-control" id="deskripsi" name="deskripsi">
+                        <label for="username">Deskripsi</label>
+                        <div class="input-group-append">
+                            <span class="input-group-text">Contoh: Ditujukan kepada....</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- <div class="form-group row">
-                @if($petugas->foto_ktp)
-                    <img src="{{ base_url('img/profil/').$petugas->foto }}" alt="" class="img-fluid rounded mx-auto d-bloc" style="width: 400px;">
-                    <img src="{{ base_url('img/profil/user.jpeg') }}" alt="" class="img-fluid rounded mx-auto d-bloc" style="width: 400px;">
-                @else
-                    <img src="{{ base_url('img/profil/user.jpeg') }}" alt="" class="img-fluid rounded mx-auto d-bloc" style="width: 400px;">
-                @endif
+                <div class="col-12">
+                    <div class="form-material form-material-primary floating input-group">
+                        <input type="text" class="form-control" id="harga" name="harga">
+                        <label for="username">Jumlah Uang {{ $this->session->user_login['nama'] }}</label>
+                        <div class="input-group-append">
+                            <span class="input-group-text">Contoh: 1250000. Lakukan Transfer Rekening BNI: 5726725</span>
+                        </div>
+                    </div>
+                </div>
             </div> -->
+
             <div class="form-group row">
                 <div class="col-12">
                     <div class="form-material form-material-primary floating input-group">
-                        <input value="{{ $petugas->nama }}" type="text" class="form-control" id="nama" name="nama" readonly>
-                        <label for="nama">Nama</label>
+                        <input type="text" class="form-control" id="jumlah_makanan" name="jumlah_makanan">
+                        <label for="username">Jumlah Makanan Yang Dibutuhkan</label>
                         <div class="input-group-append">
-                            <span class="input-group-text">Contoh: Hikmawan</span>
+                            <span class="input-group-text">Contoh: 10</span>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="form-group row">
                 <div class="col-12">
                     <div class="form-material form-material-primary floating input-group">
-                        <input value="{{ $petugas->email }}" type="text" class="form-control" id="email" name="email" readonly>
-                        <label for="email">Email</label>
-                        <div class="input-group-append">
-                            <span class="input-group-text">Contoh: hikmawan@gmail.com</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-12">
-                    <div class="form-material form-material-primary floating input-group">
-                        <input value="{{ $petugas->no_telp }}" type="text" class="form-control" id="telp" name="telp">
-                        <label for="telp">Nomer Telepon</label>
-                        <div class="input-group-append">
-                            <span class="input-group-text">Contoh: 085850000000</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @if($this->session->user_login['role']=="Penerima Makanan")
-            <div class="form-group row">
-                <div class="col-12">
-                    <div class="form-material form-material-primary floating input-group">
-                        <input value="{{ $petugas->no_telp }}" type="text" class="form-control" id="jmlh_anggota_keluarga" name="jmlh_anggota_keluarga">
-                        <label for="telp">Jumlah Anggota Keluarga</label>
-                        <div class="input-group-append">
-                            <span class="input-group-text">Contoh: 2</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            @endif
-            <div>
-                <div class="col-12">
-                    <div class="form-material form-material-primary floating input-group">
-                        <input type="file" class="form-control" id="foto_ktp" name="foto_ktp">
-                        <label for="repassword">Upload Foto KTP</label>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="col-12">
-                    <div class="form-material form-material-primary floating input-group">
-                        <input type="file" class="form-control" id="foto_kk" name="foto_kk">
-                        <label for="repassword">Upload Foto KK</label>
-                    </div>
-                </div>
-            </div>
-            <div>
-                <div class="col-12">
-                    <div class="form-material form-material-primary floating input-group">
-                        <input type="file" class="form-control" id="foto_depan_rumah" name="foto_depan_rumah">
-                        <label for="repassword">Upload Foto Depan Rumah</label>
-                    </div>
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-12">
-                    <div class="form-material form-material-primary floating input-group">
-                        <input value="{{ $petugas->alamat }}" type="text" class="form-control" id="alamat" name="alamat">
+                        <input value="" type="text" class="form-control" id="alamat" name="alamat">
                         <label for="alamat">Alamat</label>
                         <div class="input-group-append">
                             <span class="input-group-text">Contoh: Desa Rejeni RT 12 RW 06 Krembung-Sidoarjo</span>
                         </div>
                     </div>
                 </div>
-            </div>
-            
+            </div>      
             <div class="form-group row">
                 <div class="col-6">
                     <div class="form-material form-material-primary input-group">
@@ -157,18 +116,18 @@
                     <div id="map" style="height: 500px"></div>
                 </div>
             </div>
-
+             
             <hr/><div class="row mb-2">
                 <div class="col-3"></div>
-                    <a class="col-3 btn btn-danger" href="{{ base_url('PetugasController/indexProfil') }}">Cancel</a>&nbsp
+                    <a class="col-3 btn btn-danger" href="{{ base_url('DonaturController/list_request') }}">Cancel</a>&nbsp
                     <button type="submit" class="col-3 btn bg-earth text-white">Submit</button>
                 <div class="col-3"></div>
             </div>
         </form>
     </div>
 </div>
-
 @endsection
+
 @section('moreJS')
 <script src="<?php echo base_url(); ?>codebase/src/assets/js/plugins/select2/js/select2.full.min.js"></script>
 <script>jQuery(function(){ Codebase.helpers('select2'); });</script>

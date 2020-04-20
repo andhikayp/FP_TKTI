@@ -100,7 +100,7 @@
                         <i class="fa fa-file-text"></i><span class="sidebar-mini-hide">Riwayat Donasi</span>
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="{{ base_url('TransaksiController/index') }}" class="
                         @if($this->router->fetch_class() == 'TransaksiController')
                             active
@@ -115,10 +115,67 @@
                         @endif">
                         <i class="fa fa-folder"></i><span class="sidebar-mini-hide">Riwayat Pengecekan Makanan</span>
                     </a>
+                </li> -->
+
+                @elseif($this->session->user_login['role'] == "Penerima Makanan")
+                <li class="nav-main-heading"><span class="sidebar-mini-visible">UI</span><span class="sidebar-mini-hidden">Penerima Makanan</span></li>
+                <li>
+                    <a href="{{ base_url('DonaturController/request') }}" class="
+                        @if($this->router->fetch_class() == 'DonaturController')
+                            active
+                        @endif">
+                        <i class="fa fa-credit-card "></i><span class="sidebar-mini-hide">Tambah Permintaan</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ base_url('DonaturController/list_request') }}" class="
+                        @if($this->router->fetch_class() == 'DonaturController')
+                            active
+                        @endif">
+                        <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Riwayat Permintaan</span>
+                    </a>
                 </li>
 
-                @elseif($this->session->user_login['role'] == 2)
-                <li class="nav-main-heading"><span class="sidebar-mini-visible">UI</span><span class="sidebar-mini-hidden">Petugas Kasir</span></li>
+                @elseif($this->session->user_login['role'] == "Admin")
+                <li class="nav-main-heading"><span class="sidebar-mini-visible">UI</span><span class="sidebar-mini-hidden">Admin</span></li>
+                <li>
+                    <a href="{{ base_url('TransaksiController/index') }}" class="
+                        @if($this->router->fetch_class() == 'TransaksiController')
+                            active
+                        @endif">
+                        <i class="fa fa-credit-card "></i><span class="sidebar-mini-hide">Transaksi</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ base_url('BarangController/index') }}" class="
+                        @if($this->router->fetch_class() == 'BarangController')
+                            active
+                        @endif">
+                        <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Manajemen Barang</span>
+                    </a>
+                </li>
+
+                @elseif($this->session->user_login['role'] == "Relawan")
+                <li class="nav-main-heading"><span class="sidebar-mini-visible">UI</span><span class="sidebar-mini-hidden">Relawan</span></li>
+                <li>
+                    <a href="{{ base_url('TransaksiController/index') }}" class="
+                        @if($this->router->fetch_class() == 'TransaksiController')
+                            active
+                        @endif">
+                        <i class="fa fa-credit-card "></i><span class="sidebar-mini-hide">Transaksi</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ base_url('BarangController/index') }}" class="
+                        @if($this->router->fetch_class() == 'BarangController')
+                            active
+                        @endif">
+                        <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Manajemen Barang</span>
+                    </a>
+                </li>
+
+                @elseif($this->session->user_login['role'] == "Mitra Pembuat Makanan")
+                <li class="nav-main-heading"><span class="sidebar-mini-visible">UI</span><span class="sidebar-mini-hidden">Mitra Pembuat Makanan</span></li>
                 <li>
                     <a href="{{ base_url('TransaksiController/index') }}" class="
                         @if($this->router->fetch_class() == 'TransaksiController')
@@ -136,14 +193,6 @@
                     </a>
                 </li>
                 @endif
-                <!-- <li>
-                    <a href="{{ base_url('AdminController/userPetugas') }}" class="
-                        @if($this->router->fetch_class() == 'AdminController' && ($this->router->fetch_method() == 'userPetugas'))
-                            active
-                        @endif">
-                        <i class="fa fa-user"></i><span class="sidebar-mini-hide">Data Siswa</span>
-                    </a>
-                </li> -->
             </ul>
         </div>
         <!-- END Side Navigation -->

@@ -28,6 +28,15 @@ class Query extends CI_Model {
 		$query = $this->db->get();
 		return $query->result();
 	}
+
+	public function get_request_id($id)
+	{
+		$this->db->select('*');
+		$this->db->from('request');
+		$this->db->where('user_id', $id);
+		$query = $this->db->get();
+		return $query->result();
+	}
 }
 
 /* End of file Query.php */
