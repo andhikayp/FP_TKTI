@@ -112,6 +112,15 @@
                         </b></div>
                     </div>
                 </div>
+                <div class="form-group row">
+                    <div class="col-md-9">
+                        <div class="form-control-plaintext"><i class="fa fa-arrow-right mr-5"></i><b>
+                        @if($petugas->is_verif == 0 and $petugas->role == "Admin")
+                        <a href="{{ base_url('PetugasController/verifikasi/'.$petugas->id) }}" class="btn btn-sm btn-danger mr-2"><i class="fa fa-refresh mr-2"></i>Verifikasi</a>
+                        @endif  
+                        </b></div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

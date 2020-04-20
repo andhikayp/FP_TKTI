@@ -4,7 +4,7 @@
         public function getUser($id){ 
             $this->db->select('*');
             $this->db->from('user');
-            $this->db->where('email', $id);
+            $this->db->where('id', $id);
             $query = $this->db->get(); 
             return $query->first_row();
         }

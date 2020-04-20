@@ -139,11 +139,27 @@
                 @elseif($this->session->user_login['role'] == "Admin")
                 <li class="nav-main-heading"><span class="sidebar-mini-visible">UI</span><span class="sidebar-mini-hidden">Admin</span></li>
                 <li>
-                    <a href="{{ base_url('TransaksiController/index') }}" class="
-                        @if($this->router->fetch_class() == 'TransaksiController')
+                    <a href="{{ base_url('PetugasController/list_user') }}" class="
+                        @if($this->router->fetch_class() == 'PetugasController')
                             active
                         @endif">
-                        <i class="fa fa-credit-card "></i><span class="sidebar-mini-hide">Transaksi</span>
+                        <i class="fa fa-credit-card "></i><span class="sidebar-mini-hide">Manajemen User</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ base_url('DonaturController/index') }}" class="
+                        @if($this->router->fetch_class() == 'DonaturController')
+                            active
+                        @endif">
+                        <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Manajemen Donasi</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ base_url('DonaturController/list_request') }}" class="
+                        @if($this->router->fetch_class() == 'DonaturController')
+                            active
+                        @endif">
+                        <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Manajemen Permintaan</span>
                     </a>
                 </li>
                 <li>
@@ -151,7 +167,15 @@
                         @if($this->router->fetch_class() == 'BarangController')
                             active
                         @endif">
-                        <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Manajemen Barang</span>
+                        <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Pesan Makanan</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{ base_url('BarangController/index') }}" class="
+                        @if($this->router->fetch_class() == 'BarangController')
+                            active
+                        @endif">
+                        <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Bayar Relawan</span>
                     </a>
                 </li>
 

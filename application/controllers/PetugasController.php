@@ -15,14 +15,15 @@ class PetugasController extends MY_Protectedcontroller
 		$this->load->helper('path');
 		$this->load->helper('date');
 		$this->load->model('users');
+		$this->load->model('query');
 
 		if($this->session->user_login['username']){
 			$this->username = $this->session->user_login['username'];			
 		}
 	}
 
-	public function indexProfil(){
-		$data['petugas'] = $this->users->getUser($this->username);
+	public function indexProfil($id){
+		$data['petugas'] = $this->users->getUser($id);
 		$this->slice->view('dashboard.profil.petugas.index', $data);
 	}
 
@@ -47,5 +48,27 @@ class PetugasController extends MY_Protectedcontroller
 		else{
 			show_error("Method Not Allowed", 405);
 		}
+	}
+
+	public function list_user()
+	{
+		$data['donasi'] = $this->query->all('user');
+		$this->slice->view('dashboard.profil.petugas.list', $data);
+	}
+
+	public function verifikasi($id)
+	{
+		date_default_timezone_set('Asia/Jakarta'); 
+		$this->db->set('is_verif', 1);
+		$this->db->set('tanggal_verif', date("Y-m-d H:i:s"));
+        $this->db->where('id', $id);
+		$status = $this->db->update('user');
+		if(!$status){
+			$this->session->set_flashdata('message', array('type' => 'error', 'message' => [validation_errors()]));
+		}
+		else{
+			$this->session->set_flashdata('message', array('type' => 'success', 'message' => ['Proses Verifikasi Berhasil']));
+		}
+		return redirect(base_url('PetugasController/list_user'));	
 	}
 }
