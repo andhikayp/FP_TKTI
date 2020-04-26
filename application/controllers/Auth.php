@@ -67,7 +67,13 @@ class Auth extends CI_Controller {
 			);
 			$this->session->set_userdata('user_login',$data_session);
 			if ($user->latitude) {
-				$this->slice->view('dashboard/index');
+				// $data['penerima'] = $this->users->countUser('Penerima');
+				// $data['relawan'] = $this->users->countUser('Relawan');
+				// $data['donatur'] = $this->users->countUser('Donatur');
+				// $data['mitra'] = $this->users->countUser('Mitra');
+				// var_dump($data); return;
+				// $this->slice->view('dashboard/index', $data);
+				redirect(base_url("dashboard/index"));
 			}
 			else {
 				redirect(base_url("PetugasController/editProfil"));

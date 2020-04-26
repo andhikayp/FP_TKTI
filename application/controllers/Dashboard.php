@@ -10,6 +10,7 @@ class Dashboard extends MY_Protectedcontroller
 		parent::__construct();
 		$this->load->library('slice');
 		$this->load->library('form_validation');
+		$this->load->model('users');
 
 		if($this->session->user_login['username']){
 			$this->username = $this->session->user_login['username'];			
@@ -18,7 +19,11 @@ class Dashboard extends MY_Protectedcontroller
 
 	public function index()
 	{
-		$this->slice->view('dashboard/index');
+		$data['penerima'] = $this->users->countUser('Penerima');
+		$data['relawan'] = $this->users->countUser('Relawan');
+		$data['donatur'] = $this->users->countUser('Donatur');
+		$data['mitra'] = $this->users->countUser('Mitra');
+		$this->slice->view('dashboard/index', $data);
 	}
 
 	public function landing_page(){

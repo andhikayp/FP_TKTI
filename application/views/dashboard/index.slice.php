@@ -33,7 +33,59 @@
         <h3 class="block-title">Selamat Datang di Dashboard</h3>
     </div>
     <div class="block-content">
-        
+        @if($this->session->user_login['role']=="Admin")
+        <div><b>Jumlah User</b></div>
+        <div class="content content-full" id="itungan">
+            <div class="row visible" data-toggle="appear">
+                <!-- Row #1 -->
+                <div class="col-6 col-xl-3">
+                    <a class="block block-link-rotate block-transparent text-right bg-primary-light" href="javascript:void(0)">
+                        <div class="block-content block-content-full clearfix">
+                            <div class="float-left mt-10 d-none d-sm-block">
+                                <i class="si si-users fa-3x text-primary"></i>
+                            </div>
+                            <div class="font-size-h3 font-w600 text-primary-darker" data-toggle="countTo" data-speed="1000" data-to="{{ $donatur->jumlah }}">0</div>
+                            <div class="font-size-sm font-w600 text-uppercase text-primary-dark">Donatur</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-xl-3">
+                    <a class="block block-link-rotate block-transparent text-right bg-success-light" href="javascript:void(0)">
+                        <div class="block-content block-content-full clearfix">
+                            <div class="float-left mt-10 d-none d-sm-block">
+                                <i class="si si-users fa-3x text-primary"></i>
+                            </div>
+                            <div class="font-size-h3 font-w600 text-primary-darker"><span data-toggle="countTo" data-speed="1000" data-to="{{ $mitra->jumlah }}">0</span></div>
+                            <div class="font-size-sm font-w600 text-uppercase text-primary-dark">Mitra</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-xl-3">
+                    <a class="block block-link-rotate block-transparent text-right bg-info-light" href="javascript:void(0)">
+                        <div class="block-content block-content-full clearfix">
+                            <div class="float-left mt-10 d-none d-sm-block">
+                                <i class="si si-users fa-3x text-primary"></i>
+                            </div>
+                            <div class="font-size-h3 font-w600 text-primary-darker" data-toggle="countTo" data-speed="1000" data-to="{{ $relawan->jumlah }}">0</div>
+                            <div class="font-size-sm font-w600 text-uppercase text-primary-dark">Relawan</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-6 col-xl-3">
+                    <a class="block block-link-rotate block-transparent text-right bg-danger-light  " href="javascript:void(0)">
+                        <div class="block-content block-content-full clearfix">
+                            <div class="float-left mt-10 d-none d-sm-block">
+                                <i class="si si-users fa-3x text-primary"></i>
+                            </div>
+                            <div class="font-size-h3 font-w600 text-primary-darker" data-toggle="countTo" data-speed="1000" data-to="{{ $penerima->jumlah }}">0</div>
+                            <div class="font-size-sm font-w600 text-uppercase text-primary-dark">Penerima</div>
+                        </div>
+                    </a>
+                </div>
+                <!-- END Row #1 -->
+            </div>
+        </div>
+        @endif
         <!-- <h2 class="content-heading text-default">ALUR PENGISIAN KONDISI KERUSAKAN SEKOLAH</h2>
         <div class="row gutters-tiny">
             <div class="col-md-6 col-xl-3">
