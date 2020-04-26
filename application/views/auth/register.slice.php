@@ -81,8 +81,8 @@
                                 <select class="form-control pilih_barang" id="role" name="role" required>
                                     <option value="">Login Sebagai: </option>
                                     <option value="Donatur">Donatur</option>
-                                    <option value="Mitra Pembuat Makanan">Mitra Pembuat Makanan</option>
-                                    <option value="Penerima Makanan">Penerima Makanan</option>
+                                    <option value="Mitra">Mitra Pembuat Makanan</option>
+                                    <option value="Penerima">Penerima Makanan</option>
                                     <option value="Relawan">Relawan</option>
                                 </select>
                             </div>

@@ -73,7 +73,7 @@
         <div class="content-side content-side-full">
             <ul class="nav-main">
                 <li>
-                    <a href="{{ base_url('/') }}" class="
+                    <a href="{{ base_url('/dashboard/index') }}" class="
                         @if($this->router->fetch_class() == 'dashboard' && $this->router->fetch_method() == 'index')
                             active
                         @endif">
@@ -117,7 +117,7 @@
                     </a>
                 </li> -->
 
-                @elseif($this->session->user_login['role'] == "Penerima Makanan")
+                @elseif($this->session->user_login['role'] == "Penerima")
                 <li class="nav-main-heading"><span class="sidebar-mini-visible">UI</span><span class="sidebar-mini-hidden">Penerima Makanan</span></li>
                 <li>
                     <a href="{{ base_url('DonaturController/request') }}" class="
@@ -198,7 +198,7 @@
                     </a>
                 </li>
 
-                @elseif($this->session->user_login['role'] == "Mitra Pembuat Makanan")
+                @elseif($this->session->user_login['role'] == "Mitra")
                 <li class="nav-main-heading"><span class="sidebar-mini-visible">UI</span><span class="sidebar-mini-hidden">Mitra Pembuat Makanan</span></li>
                 <li>
                     <a href="{{ base_url('TransaksiController/index') }}" class="
