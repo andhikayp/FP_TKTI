@@ -85,7 +85,7 @@
                                 <a href="#tentang-kami">Tentang Kami</a>
                             </li>
                             <li>
-                                <a href="#">Login</a>
+                                <a href="{{ base_url('auth/index') }}">Login</a>
                             </li>
                         </ul>
                     </div>
