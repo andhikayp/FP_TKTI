@@ -59,5 +59,11 @@
                 return false;
             }
         }
+
+        public function countUser($role)
+        {
+            $sql = "SELECT COUNT(*) as jumlah FROM user WHERE role = ? " ; 
+            return $this->db->query($sql, array($role))->first_row();
+        }
     }
 ?>   

@@ -10,9 +10,14 @@ class Landing_Page extends MY_Protectedcontroller
 		parent::__construct();
 		$this->load->library('slice');
 		$this->load->library('form_validation');
+		$this->load->model('users');
 	}
 
 	public function index(){
-		$this->slice->view('landing_page');
+		$data['penerima'] = $this->users->countUser('Penerima');
+		$data['relawan'] = $this->users->countUser('Relawan');
+		$data['donatur'] = $this->users->countUser('Donatur');
+		$data['mitra'] = $this->users->countUser('Mitra');
+		$this->slice->view('landing_page', $data);
 	}
 }

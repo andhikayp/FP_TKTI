@@ -19,6 +19,12 @@ class AdminController extends MY_Protectedcontroller
 		if($this->session->user_login['username']){
 			$this->username = $this->session->user_login['username'];			
 		}
+		
+		if(!$this->session->user_login)
+		{
+			$this->session->set_flashdata('message', array('type' => 'error', 'message' => ["Silahkan masuk terlebih dahulu"]));
+			redirect(base_url("auth/index")); 
+        }
 	}
 
 	public function userPetugas(){

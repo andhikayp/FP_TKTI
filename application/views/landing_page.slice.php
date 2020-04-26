@@ -287,7 +287,7 @@
                                     <div class="float-left mt-10 d-none d-sm-block">
                                         <i class="si si-users fa-3x text-primary"></i>
                                     </div>
-                                    <div class="font-size-h3 font-w600 text-primary-darker" data-toggle="countTo" data-speed="1000" data-to="1500">0</div>
+                                    <div class="font-size-h3 font-w600 text-primary-darker" data-toggle="countTo" data-speed="1000" data-to="{{ $donatur->jumlah }}">0</div>
                                     <div class="font-size-sm font-w600 text-uppercase text-primary-dark">Donatur</div>
                                 </div>
                             </a>
@@ -298,7 +298,7 @@
                                     <div class="float-left mt-10 d-none d-sm-block">
                                         <i class="si si-users fa-3x text-primary"></i>
                                     </div>
-                                    <div class="font-size-h3 font-w600 text-primary-darker"><span data-toggle="countTo" data-speed="1000" data-to="780">0</span></div>
+                                    <div class="font-size-h3 font-w600 text-primary-darker"><span data-toggle="countTo" data-speed="1000" data-to="{{ $mitra->jumlah }}">0</span></div>
                                     <div class="font-size-sm font-w600 text-uppercase text-primary-dark">Mitra</div>
                                 </div>
                             </a>
@@ -309,7 +309,7 @@
                                     <div class="float-left mt-10 d-none d-sm-block">
                                         <i class="si si-users fa-3x text-primary"></i>
                                     </div>
-                                    <div class="font-size-h3 font-w600 text-primary-darker" data-toggle="countTo" data-speed="1000" data-to="15">0</div>
+                                    <div class="font-size-h3 font-w600 text-primary-darker" data-toggle="countTo" data-speed="1000" data-to="{{ $relawan->jumlah }}">0</div>
                                     <div class="font-size-sm font-w600 text-uppercase text-primary-dark">Relawan</div>
                                 </div>
                             </a>
@@ -320,7 +320,7 @@
                                     <div class="float-left mt-10 d-none d-sm-block">
                                         <i class="si si-users fa-3x text-primary"></i>
                                     </div>
-                                    <div class="font-size-h3 font-w600 text-primary-darker" data-toggle="countTo" data-speed="1000" data-to="4252">0</div>
+                                    <div class="font-size-h3 font-w600 text-primary-darker" data-toggle="countTo" data-speed="1000" data-to="{{ $penerima->jumlah }}">0</div>
                                     <div class="font-size-sm font-w600 text-uppercase text-primary-dark">Penerima Bantuan</div>
                                 </div>
                             </a>
