@@ -26,7 +26,7 @@
         <!-- END Stylesheets -->
         <style>
 
-              .slider-active{
+              #main-container{
                 /* The image used */
                 background-image: url("{{ base_url('codebase/src/assets/media/favicons/back.png') }}");
 
@@ -34,9 +34,8 @@
                 height: 100%; 
 
                 /* Center and scale the image nicely */
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
+                background-repeat: repeat;
+                background-size: contain;
               }
             </style>
     </head>
@@ -77,13 +76,13 @@
                         -->
                         <ul class="nav-main">
                         <li>
-                                <a class="active" href="bd_dashboard.html">Beranda</a>
+                                <a class="active" href="{{ base_url('') }}">Beranda</a>
                             </li>
                             <li>
-                                <a  href="#">Layanan</a>
+                                <a  href="#layanan">Layanan</a>
                             </li>
                             <li>
-                                <a href="#">Tentang Kami</a>
+                                <a href="#tentang-kami">Tentang Kami</a>
                             </li>
                             <li>
                                 <a href="#">Login</a>
@@ -124,16 +123,16 @@
                         -->
                         <ul class="nav-main-header">
                             <li>
-                                <a class="active" href="bd_dashboard.html">Beranda</a>
+                                <a class="active" href="{{ base_url('') }}">Beranda</a>
                             </li>
                             <li>
-                                <a  href="#">Layanan</a>
+                                <a  href="#layanan">Layanan</a>
                             </li>
                             <li>
-                                <a href="#">Tentang Kami</a>
+                                <a href="#tentang-kami">Tentang Kami</a>
                             </li>
                             <li>
-                                <a href="#">Login</a>
+                                <a href="{{ base_url('auth/index') }}">Login</a>
                             </li>
                         </ul>
                         <!-- END Header Navigation -->
@@ -277,15 +276,16 @@
                 </div>
                 <!-- Slider Area End -->
 
+                
                 <!-- Page Content -->
-                <div class="content content-full">
+                <div class="content content-full" id="itungan">
                     <div class="row visible" data-toggle="appear">
                         <!-- Row #1 -->
                         <div class="col-6 col-xl-3">
                             <a class="block block-link-rotate block-transparent text-right bg-primary-lighter" href="javascript:void(0)">
                                 <div class="block-content block-content-full clearfix">
                                     <div class="float-left mt-10 d-none d-sm-block">
-                                        <i class="si si-bag fa-3x text-primary"></i>
+                                        <i class="si si-users fa-3x text-primary"></i>
                                     </div>
                                     <div class="font-size-h3 font-w600 text-primary-darker" data-toggle="countTo" data-speed="1000" data-to="1500">0</div>
                                     <div class="font-size-sm font-w600 text-uppercase text-primary-dark">Donatur</div>
@@ -296,7 +296,7 @@
                             <a class="block block-link-rotate block-transparent text-right bg-primary-lighter" href="javascript:void(0)">
                                 <div class="block-content block-content-full clearfix">
                                     <div class="float-left mt-10 d-none d-sm-block">
-                                        <i class="si si-wallet fa-3x text-primary"></i>
+                                        <i class="si si-users fa-3x text-primary"></i>
                                     </div>
                                     <div class="font-size-h3 font-w600 text-primary-darker"><span data-toggle="countTo" data-speed="1000" data-to="780">0</span></div>
                                     <div class="font-size-sm font-w600 text-uppercase text-primary-dark">Mitra</div>
@@ -307,7 +307,7 @@
                             <a class="block block-link-rotate block-transparent text-right bg-primary-lighter" href="javascript:void(0)">
                                 <div class="block-content block-content-full clearfix">
                                     <div class="float-left mt-10 d-none d-sm-block">
-                                        <i class="si si-envelope-open fa-3x text-primary"></i>
+                                        <i class="si si-users fa-3x text-primary"></i>
                                     </div>
                                     <div class="font-size-h3 font-w600 text-primary-darker" data-toggle="countTo" data-speed="1000" data-to="15">0</div>
                                     <div class="font-size-sm font-w600 text-uppercase text-primary-dark">Relawan</div>
@@ -329,6 +329,114 @@
                     </div>
                 </div>
                 <!-- END Page Content -->
+
+                <!-- Best Features Start -->
+                <section class="best-features-area inner-padding" id="layanan">
+                    <div class="container">
+                        <div class="row justify-content-end">
+                            <div class="col-xl-8 col-lg-10">
+                                <!-- Section Tittle -->
+                                <div class="row">
+                                    <div class="col-lg-10 col-md-10">
+                                        <div class="section-tittle">
+                                            <h2>Layanan</h2>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Section caption -->
+                                <div class="row">
+                                    <div class="col-xl-6 col-lg-6 col-md-6">
+                                        <div class="single-features mb-70">
+                                            <div class="features-icon">
+                                                <span class="flaticon-support"></span>
+                                            </div>
+                                            <div class="features-caption">
+                                                <h3>Donatur</h3>
+                                                <p>Donatur dapat memesan makanan untuk memberi bantuan kepada orang yang membutuhkan</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6">
+                                        <div class="single-features mb-70">
+                                            <div class="features-icon">
+                                                <span class="flaticon-support"></span>
+                                            </div>
+                                            <div class="features-caption">
+                                                <h3>Mitra</h3>
+                                                <p>Mitra menyediakan makanan sesuai yang dipesan oleh Donatur</p>
+                                            </div>
+                                        </div>
+                                    </div> 
+                                    <div class="col-xl-6 col-lg-6 col-md-6">
+                                        <div class="single-features mb-70">
+                                            <div class="features-icon">
+                                                <span class="flaticon-support"></span>
+                                            </div>
+                                            <div class="features-caption">
+                                                <h3>Relawan</h3>
+                                                <p>Relawan mengantarkan makanan kepada Penerima Bantuan</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xl-6 col-lg-6 col-md-6">
+                                        <div class="single-features mb-70">
+                                            <div class="features-icon">
+                                                <span class="flaticon-support"></span>
+                                            </div>
+                                            <div class="features-caption">
+                                                <h3>Penerima Bantuan</h3>
+                                                <p>Penerima Bantuan akan menerima bantuan yang diantarkan oleh relawan dibuat oleh mitra dan sumber dana dari donatur</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Shpe -->
+                    <div class="features-shpae features-shpae2 d-none d-lg-block" style="margin-top:-14%;">
+                        <img src="{{ base_url('codebase/src/assets/media/favicons/layanan.png') }}" alt="">
+                    </div>
+                </section>
+                <!-- Best Features End -->
+
+                <!-- Applic App Start -->
+                <div class="applic-apps section-padding2" style="margin-top:10%;margin-bottom:5%;" id="tentang-kami">
+                    <div class="container-fluid">
+                        <div class="row">
+                            <!-- slider Heading -->
+                            <div class="col-xl-4 col-lg-4 col-md-8">
+                                <div style="text-align:justify; padding-right:2%;" class="single-cases-info mb-30">
+                                    <h3>Tentang Kami</h3>
+                                    <p>Simarak adalah platform yang mempunyai tujuan memudahkan manusia untuk saling membantu. Pada platform ini, donatur dapat dengan mudah untuk menyumbangkan bantuannya berupa uang. Uang tersebut akan diolah oleh mitra sehingga bantuan yang diberikan dapat berupa makanan atau kebutuhan primer lainnya. Setelah proses pengolahan selesai, relawan akan mengantarkan bantuan tersebut kepada penerima bantuan.</p>
+                                </div>
+                            </div>
+                            <!-- OwL -->
+                            <div class="col-xl-6 col-lg-8 col-md-col-md-7" style="margin-left : 10%;">
+                                <div class="app-active owl-carousel"> 
+                                    <div class="single-cases-img">
+                                        <img width="100%"src="{{ base_url('codebase/src/assets/media/favicons/App1.png') }}" alt="">
+                                    </div>
+                                    <!-- <div class="single-cases-img">
+                                        <img src="{{ base_url('codebase/src/assets/media/favicons/App2.png') }}" alt="">
+                                    </div>
+                                    <div class="single-cases-img">
+                                        <img src="{{ base_url('codebase/src/assets/media/favicons/App3.png') }}" alt="">
+                                    </div>
+                                    <div class="single-cases-img">
+                                        <img src="{{ base_url('codebase/src/assets/media/favicons/App2.png') }}" alt="">
+                                    </div>
+                                    <div class="single-cases-img">
+                                        <img src="{{ base_url('codebase/src/assets/media/favicons/App1.png') }}" alt="">
+                                    </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Applic App End -->
+                
+
 
             </main>
             <!-- END Main Container -->
