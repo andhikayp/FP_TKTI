@@ -66,7 +66,7 @@
                                 @if($data->is_verif == 0 and $this->session->user_login['role']=="Admin")
                                 <a href="{{ base_url('DonaturController/verifikasi/'.$data->id) }}" class="btn btn-sm btn-primary mr-2"><i class="fa fa-refresh mr-2"></i>Verifikasi</a>
                                 @endif
-                                <!-- <button value="{{ base_url('AdminController/deleteUser/'.$data->id) }}" class="btn btn-sm btn-danger hapus-satu"><i class="fa fa-trash mr-2"></i>Hapus</button> -->
+                                <button value="{{ base_url('DonaturController/detail_donasi/'.$data->id) }}" class="btn btn-sm btn-danger hapus-satu"><i class="fa fa-trash mr-2"></i>Detail</button>
                             </span>
                         </td>
                     </tr>
@@ -88,7 +88,17 @@
         });
     });
 </script>
-
+<script>
+    //disini gak error
+    var locations = []
+    <?php foreach ($donasi as $data) { ?>
+        locations.push({
+            lat: <?php echo $data->latitude; ?>,
+            lng: <?php echo $data->longitude; ?>,
+        });
+    <?php } ?>
+    console.log(locations)
+</script>
 <script>
     $(".hapus-satu").click(function(){
         var link = ($(this).val())

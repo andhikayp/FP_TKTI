@@ -65,5 +65,11 @@
             $sql = "SELECT COUNT(*) as jumlah FROM user WHERE role = ? " ; 
             return $this->db->query($sql, array($role))->first_row();
         }
+
+        public function getPenerima($id)
+        {
+            $sql = "SELECT * FROM user WHERE id IN (SELECT id_user FROM penerima_donasi WHERE id_donasi = ?)" ; 
+            return $this->db->query($sql, array($id))->result();
+        }
     }
 ?>   

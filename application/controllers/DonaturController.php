@@ -134,6 +134,18 @@ class DonaturController extends CI_Controller {
 		}
 		return redirect(base_url('DonaturController/list_request'));	
 	}
+
+	public function detail_donasi($id)
+	{
+		$data['donasi'] = $this->query->find('donasi', $id);
+		$data['donatur'] = $this->query->find('user', $data['donasi']->user_id);
+		$data['mitra'] = $this->query->find('user', $data['donasi']->mitra_id);
+		$data['relawan'] = $this->query->find('user', $data['donasi']->relawan_id);
+		$data['penerima'] = $this->users->getPenerima($id);
+		// var_dump($data); return;
+		$this->slice->view('dashboard.donasi.detail_donasi', $data);
+		
+	}
 }
 
 /* End of file DonaturController.php */
