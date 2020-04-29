@@ -359,7 +359,7 @@
     function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 3,
-          center: {lat: -28.024, lng: 140.887}
+          center: {lat: -7.4469817, lng: 112.6959943}
         });
         var markers = locations.map(function(location, i) {
             return new google.maps.Marker({

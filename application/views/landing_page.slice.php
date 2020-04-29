@@ -328,6 +328,21 @@
                         <!-- END Row #1 -->
                     </div>
                 </div>
+
+                <div class="content content-full" id="itungan" style="border: solid black 10px; background: white">
+                    <div class="row">
+                        <div class="col-lg-10 col-md-10">
+                            <div class="section-tittle">
+                                <h2>Sebaran Penerima Bantuan Makanan</h2>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-12">
+                            <div id="map" style="height: 500px"></div>
+                        </div>
+                    </div>
+                </div>
                 <!-- END Page Content -->
 
                 <!-- Best Features Start -->
@@ -460,5 +475,44 @@
 
         <script src="{{ base_url('codebase/src/assets/js/pages/be_pages_dashboard.min.js')}}"></script>
         
+        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('#table-ruang').DataTable({
+                    "autoWidth": true,
+                    "ordering": false,
+                });
+            });
+
+            var locations = []
+            var labels = []
+            i = 1;
+            <?php foreach ($sebaran as $data) { ?>
+                locations.push({
+                    lat: parseFloat("<?php echo $data->latitude; ?>"),
+                    lng: parseFloat("<?php echo $data->longitude; ?>"),
+                });
+                labels.push(i.toString());
+                i++;
+            <?php } ?>
+        </script>
+        <script>
+            function initMap() {
+                var map = new google.maps.Map(document.getElementById('map'), {
+                  zoom: 11,
+                  center: {lat: -7.4469817, lng: 112.6959943}
+                });
+                var markers = locations.map(function(location, i) {
+                    return new google.maps.Marker({
+                        position: location,
+                        label: labels[i]
+                    });
+                });
+                var markerCluster = new MarkerClusterer(map, markers,
+                    {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
+            }
+        </script>
+        <script src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
+        <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTnAg_gwZ-GQxB6xC0h2cY4TDFYU28ov8&callback=initMap"></script>
     </body>
 </html>
