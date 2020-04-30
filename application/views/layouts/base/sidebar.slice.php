@@ -216,6 +216,14 @@
                         <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Manajemen Barang</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ base_url('MenuController/index') }}" class="
+                        @if($this->router->fetch_class() == 'MenuController')
+                            active
+                        @endif">
+                        <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Menu Makanan</span>
+                    </a>
+                </li>
                 @endif
             </ul>
         </div>
