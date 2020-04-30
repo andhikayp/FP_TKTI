@@ -62,6 +62,9 @@ class PetugasController extends MY_Protectedcontroller
 		$data['donasi'] = $this->query->all('user');
 		$this->slice->view('dashboard.profil.petugas.list', $data);
 	}
+	public function tambah(){
+		$this->slice->view('dashboard.profil.petugas.tambah');
+	}
 
 	public function verifikasi($id)
 	{

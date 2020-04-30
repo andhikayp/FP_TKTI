@@ -33,7 +33,7 @@
         <h3 class="block-title">Manajemen User</h3>
     </div>
     <div class="block-content">
-        <a href="{{ base_url('DonaturController/request') }}" class="btn btn-sm bg-earth text-white mb-3"><i class="fa fa-plus mr-2"></i>Tambah User</a>
+        <a href="{{ base_url('PetugasController/tambah') }}" class="btn btn-sm bg-earth text-white mb-3"><i class="fa fa-plus mr-2"></i>Tambah User</a>
         <div class="table-responsive">
             <table id="table-ruang" class="stripe table table-stripped">
                 <thead>
