@@ -74,7 +74,7 @@
                 <label class="col-12">Foto Makanan</label>
                 <div class="col-md-9">
                     <div class="form-control-plaintext">
-                        <img src="<?php echo '/img/menu/'.$menu->foto_menu; ?>" alt="" srcset="">
+                        <img src="{{ base_url('img/menu/').$menu->foto_menu }}" alt="" srcset="">
                     </div>
                 </div>
             </div>

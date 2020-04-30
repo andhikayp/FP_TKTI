@@ -221,7 +221,7 @@
                         @if($this->router->fetch_class() == 'MenuController')
                             active
                         @endif">
-                        <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Menu Makanan</span>
+                        <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Menu Paket</span>
                     </a>
                 </li>
                 @endif

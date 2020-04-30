@@ -58,8 +58,9 @@
                         <td class="text-center">{{ "Rp " . number_format($data->harga,2,',','.'); }}</td>
                         <td class="text-center" style="min-width: 260px">
                             <span>
-                                <a href="{{ base_url('MenuController/detail/'.$data->id) }}" class="btn btn-sm btn-primary mr-2"><i class="fa fa-refresh mr-2"></i>Detail</a>
-                                <!-- <button value="{{ base_url('MenuController/deleteBarang/'.$data->id) }}" class="btn btn-sm btn-danger hapus-satu"><i class="fa fa-trash mr-2"></i>Hapus</button> -->
+                                <a href="{{ base_url('MenuController/detail/'.$data->id) }}" class="btn btn-sm btn-info mr-2"><i class="fa fa-exclamation-circle mr-2"></i>Detail</a>
+                                <a href="{{ base_url('MenuController/edit/'.$data->id) }}" class="btn btn-sm btn-warning mr-2"><i class="fa fa-pencil mr-2"></i>Edit</a>
+                                <button value="{{ base_url('MenuController/deleteMenu/'.$data->id) }}" class="btn btn-sm btn-danger hapus-satu"><i class="fa fa-trash mr-2"></i>Hapus</button>
                             </span>
                         </td>
                     </tr>

@@ -71,5 +71,28 @@ class MenuController extends CI_Controller
 		// var_dump($data);
 		$this->slice->view('dashboard.menu.detail', $data);
 	}
+
+	public function edit($id)
+	{
+
+		$data['menu'] = $this->menu->getMenuById($id);
+		// var_dump($data);
+		$this->slice->view('dashboard.menu.edit', $data);
+	}
+
+	public function saveEdit()
+	{
+		$input = $this->input->post(NULL, TRUE);
+		// var_dump($input);
+		$status = $this->menu->updateMenu($this->input->post('id'), $input);
+		$this->session->set_flashdata('message', array('type' => 'success', 'message' => ['Sukses Mengedit Data Menu']));
+		return redirect(base_url('MenuController/index'));
+	}
+
+	public function deleteMenu($id){
+		$this->menu->delMenu($id);
+		$this->session->set_flashdata('message', array('type' => 'success', 'message' => ['Menu Berhasil Dihapus']));
+		return redirect(base_url('MenuController/index'));
+	}
 }
 ?>
