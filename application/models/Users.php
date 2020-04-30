@@ -68,7 +68,7 @@
 
         public function getPenerima($id)
         {
-            $sql = "SELECT * FROM user WHERE id IN (SELECT id_user FROM penerima_donasi WHERE id_donasi = ?)" ; 
+            $sql = "SELECT * FROM penerima_donasi WHERE id_donasi = ?" ; 
             return $this->db->query($sql, array($id))->result();
         }
 
