@@ -2,12 +2,12 @@
 @section('title', 'Masuk')
 
 @section('content')
-<div class="bg-image" style="background-image: url({{ base_url('/img/bg_kasir.jpg') }});">
+<div class="bg-image" style="background-image: url({{ base_url('/img/background123.jpg') }});">
     <div class="row mx-0 bg-black-op">
         <div class="hero-static col-md-6 col-xl-8 d-none d-md-flex align-items-md-end">
             <div class="p-30 invisible" data-toggle="appear">
                 <p class="font-italic text-white-op">
-                    Copyright &copy; <b>Sistem Informasi Kasir </b>Andhika Yoga Perdana (05111740000101) <span class="js-year-copy"></span>
+                    Copyright &copy; <b>Sistem Informasi Berbagi Makanan (SIMARAK) </b><span class="js-year-copy"></span>
                 </p>
             </div>
         </div>

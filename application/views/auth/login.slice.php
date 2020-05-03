@@ -2,21 +2,21 @@
 @section('title', 'Masuk')
 
 @section('content')
-<div class="bg-image" style="background-image: url({{ base_url('/img/bg_kasir.jpg') }});">
+<div class="bg-image" style="background-image: url({{ base_url('/img/background123.jpg') }});">
     <div class="row mx-0 bg-black-op">
         <div class="hero-static col-md-6 col-xl-8 d-none d-md-flex align-items-md-end">
             <div class="p-30 invisible" data-toggle="appear">
                 <p class="font-italic text-white-op">
-                    Copyright &copy; <b>Sistem Informasi Kasir </b>Andhika Yoga Perdana (05111740000101) <span class="js-year-copy"></span>
+                    Copyright &copy; <b>Sistem Informasi Berbagi Makanan (SIMARAK) </b> <span class="js-year-copy"></span>
                 </p>
             </div>
         </div>
         <div class="hero-static col-md-6 col-xl-4 d-flex align-items-center bg-white invisible" data-toggle="appear" data-class="animated fadeInRight">
             <div class="content content-full">
                 <div class="px-30 py-10 text-center">
-                    <img src="{{ base_url('/img/logo_kasir.png') }}" alt="" width="70%" height="100%"><br><br>
+                    <img src="{{ base_url('/img/logo123.png') }}" alt="" width="70%" height="100%"><br><br>
                     <a class="link-effect font-w700" href="index.html">
-                        <span class="font-size-xl text-primary-dark">Sistem Informasi Kasir</span> <span class="font-size-xl"><br>Andhika Yoga Perdana</span>
+                        <span class="font-size-xl text-primary-dark">Sistem Informasi Berbagi Makanan (SIMARAK)</span> 
                     </a>
                 </div>
                 <div class="px-30 py-10">

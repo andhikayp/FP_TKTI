@@ -26,8 +26,8 @@
                 <!-- Logo -->
                 <div class="content-header-item">
                     <a class="link-effect font-w700" href="#">
-                        <i class="fa fa-database text-primary"></i>
-                        <span class="font-size-xl text-dual-primary-dark">AKSEL </span> <span class="font-size-xl text-primary">2020</span>
+                        
+                        <span class="font-size-xl text-dual-primary-dark">SIMARAK </span> 
                     </a>
                 </div>
                 <!-- END Logo -->
@@ -40,7 +40,7 @@
         <div class="content-side content-side-full content-side-user px-10 align-parent">
             <!-- Visible only in mini mode -->
             <div class="sidebar-mini-visible-b align-v animated fadeIn">
-                <img class="" style="width: 100px;" src="{{ base_url('/img/logo_kasir.png') }}"
+                <img class="" style="width: 100px;" src="{{ base_url('/img/logo123.png') }}"
                     alt="">
             </div>
             <!-- END Visible only in mini mode -->
@@ -48,7 +48,7 @@
             <!-- Visible only in normal mode -->
             <div class="sidebar-mini-hidden-b text-center">
                 <a class="img-link" href="#">
-                    <img class="img-avatar" style="width: 70px;" src="{{ base_url('/img/logo_kasir.png') }}" alt="">
+                    <img class="img-avatar" style="width: 70px;" src="{{ base_url('/img/logo123.png') }}" alt="">
                 </a>
                 <ul class="list-inline mt-10">
                     <li class="list-inline-item">
