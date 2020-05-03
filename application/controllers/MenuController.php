@@ -93,5 +93,11 @@ class MenuController extends CI_Controller
 		$this->session->set_flashdata('message', array('type' => 'success', 'message' => ['Menu Berhasil Dihapus']));
 		return redirect(base_url('MenuController/index'));
 	}
+
+	public function daftarMitra()
+	{
+		$data['mitra'] = $this->menu->getAllMitra();
+		$this->slice->view('dashboard.menu.mitra', $data);
+	}
 }
 ?>

@@ -100,6 +100,14 @@
                         <i class="fa fa-file-text"></i><span class="sidebar-mini-hide">Riwayat Donasi</span>
                     </a>
                 </li>
+                <li>
+                    <a href="{{ base_url('MenuController/daftarMitra') }}" class="
+                        @if($this->router->fetch_class() == 'MenuController')
+                            active
+                        @endif">
+                        <i class="fa fa-file-text"></i><span class="sidebar-mini-hide">Daftar Mitra</span>
+                    </a>
+                </li>
                 <!-- <li>
                     <a href="{{ base_url('TransaksiController/index') }}" class="
                         @if($this->router->fetch_class() == 'TransaksiController')
@@ -118,23 +126,25 @@
                 </li> -->
 
                 @elseif($this->session->user_login['role'] == "Penerima")
-                <li class="nav-main-heading"><span class="sidebar-mini-visible">UI</span><span class="sidebar-mini-hidden">Penerima Makanan</span></li>
-                <li>
-                    <a href="{{ base_url('DonaturController/request') }}" class="
-                        @if($this->router->fetch_class() == 'DonaturController')
-                            active
-                        @endif">
-                        <i class="fa fa-credit-card "></i><span class="sidebar-mini-hide">Tambah Permintaan</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ base_url('DonaturController/list_request') }}" class="
-                        @if($this->router->fetch_class() == 'DonaturController')
-                            active
-                        @endif">
-                        <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Riwayat Permintaan</span>
-                    </a>
-                </li>
+                @if($this->session->user_login['is_verif'] == "1")
+                    <li class="nav-main-heading"><span class="sidebar-mini-visible">UI</span><span class="sidebar-mini-hidden">Penerima Makanan</span></li>
+                    <li>
+                        <a href="{{ base_url('DonaturController/request') }}" class="
+                            @if($this->router->fetch_class() == 'DonaturController')
+                                active
+                            @endif">
+                            <i class="fa fa-credit-card "></i><span class="sidebar-mini-hide">Tambah Permintaan</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ base_url('DonaturController/list_request') }}" class="
+                            @if($this->router->fetch_class() == 'DonaturController')
+                                active
+                            @endif">
+                            <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Riwayat Permintaan</span>
+                        </a>
+                    </li>
+                @endif
 
                 @elseif($this->session->user_login['role'] == "Admin")
                 <li class="nav-main-heading"><span class="sidebar-mini-visible">UI</span><span class="sidebar-mini-hidden">Admin</span></li>
@@ -199,8 +209,8 @@
                 </li>
 
                 @elseif($this->session->user_login['role'] == "Mitra")
-                <li class="nav-main-heading"><span class="sidebar-mini-visible">UI</span><span class="sidebar-mini-hidden">Mitra Pembuat Makanan</span></li>
                     @if($this->session->user_login['is_verif'] == "1")
+                    <li class="nav-main-heading"><span class="sidebar-mini-visible">UI</span><span class="sidebar-mini-hidden">Mitra Pembuat Makanan</span></li>
                     <li>
                         <a href="{{ base_url('TransaksiController/index') }}" class="
                             @if($this->router->fetch_class() == 'TransaksiController')

@@ -21,6 +21,16 @@ class Menu extends CI_Model
         return $query->first_row();
     }
 
+    public function getAllMitra()
+    {
+        $this->db->select('*');
+        $this->db->from('user');
+        $this->db->where('role', 'Mitra');
+        $this->db->where('is_verif', '1');
+        $query = $this->db->get();
+        return $query->result();
+    }
+
     public function updateMenu($id, $data = []){
         if(sizeof($data) <= 0){
             return 0;
