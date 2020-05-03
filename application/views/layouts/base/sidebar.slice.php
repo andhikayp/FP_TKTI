@@ -200,30 +200,32 @@
 
                 @elseif($this->session->user_login['role'] == "Mitra")
                 <li class="nav-main-heading"><span class="sidebar-mini-visible">UI</span><span class="sidebar-mini-hidden">Mitra Pembuat Makanan</span></li>
-                <li>
-                    <a href="{{ base_url('TransaksiController/index') }}" class="
-                        @if($this->router->fetch_class() == 'TransaksiController')
-                            active
-                        @endif">
-                        <i class="fa fa-credit-card "></i><span class="sidebar-mini-hide">Transaksi</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ base_url('BarangController/index') }}" class="
-                        @if($this->router->fetch_class() == 'BarangController')
-                            active
-                        @endif">
-                        <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Manajemen Barang</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="{{ base_url('MenuController/index') }}" class="
-                        @if($this->router->fetch_class() == 'MenuController')
-                            active
-                        @endif">
-                        <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Menu Paket</span>
-                    </a>
-                </li>
+                    @if($this->session->user_login['is_verif'] == "1")
+                    <li>
+                        <a href="{{ base_url('TransaksiController/index') }}" class="
+                            @if($this->router->fetch_class() == 'TransaksiController')
+                                active
+                            @endif">
+                            <i class="fa fa-credit-card "></i><span class="sidebar-mini-hide">Transaksi</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ base_url('BarangController/index') }}" class="
+                            @if($this->router->fetch_class() == 'BarangController')
+                                active
+                            @endif">
+                            <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Manajemen Barang</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{ base_url('MenuController/index') }}" class="
+                            @if($this->router->fetch_class() == 'MenuController')
+                                active
+                            @endif">
+                            <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Menu Paket</span>
+                        </a>
+                    </li>
+                    @endif
                 @endif
             </ul>
         </div>

@@ -38,7 +38,7 @@
             <div class="form-group row">
                 <div class="col-12">
                     <div class="form-material form-material-primary floating input-group">
-                        <input type="text" class="form-control" id="nama" name="nama">
+                        <input type="text" class="form-control" id="nama" name="nama" required>
                         <label for="username">Nama Menu</label>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
             <div class="form-group row">
                 <div class="col-12">
                     <div class="form-material form-material-primary floating input-group">
-                        <input type="text" class="form-control" id="jumlah" name="jumlah">
+                        <input type="text" class="form-control" id="jumlah" name="jumlah" required>
                         <label for="username">Jumlah</label>
                     </div>
                 </div>
@@ -54,7 +54,7 @@
             <div class="form-group row">
                 <div class="col-12">
                     <div class="form-material form-material-primary floating input-group">
-                        <input type="text" class="form-control" id="harga" name="harga">
+                        <input type="text" class="form-control" id="harga" name="harga" required>
                         <label for="username">Harga</label>
                     </div>
                 </div>
@@ -62,7 +62,7 @@
             <div class="form-group row">
                 <div class="col-12">
                     <div class="form-material form-material-primary floating input-group">
-                        <input type="text" class="form-control" id="deskripsi" name="deskripsi">
+                        <input type="text" class="form-control" id="deskripsi" name="deskripsi" required>
                         <label for="username">Deskripsi</label>
                     </div>
                 </div>

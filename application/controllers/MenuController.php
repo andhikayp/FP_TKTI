@@ -30,7 +30,6 @@ class MenuController extends CI_Controller
 	public function tambah()
 	{
 		$data['id'] = $this->session->user_login['id'];
-		// var_dump($data);
 		$this->slice->view('dashboard.menu.tambah', $data);
 	}
 

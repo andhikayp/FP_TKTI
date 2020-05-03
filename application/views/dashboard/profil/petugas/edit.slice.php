@@ -86,7 +86,7 @@
                     </div>
                 </div>
             </div>
-            @if($this->session->user_login['role']=="Penerima Makanan")
+            @if($this->session->user_login['role']=="Penerima")
             <div class="form-group row">
                 <div class="col-12">
                     <div class="form-material form-material-primary floating input-group">
@@ -99,6 +99,7 @@
                 </div>
             </div>
             @endif
+            @if($this->session->user_login['role']!="Mitra")
             <div>
                 <div class="col-12">
                     <div class="form-material form-material-primary floating input-group">
@@ -115,11 +116,18 @@
                     </div>
                 </div>
             </div>
+            @endif
             <div>
                 <div class="col-12">
                     <div class="form-material form-material-primary floating input-group">
                         <input type="file" class="form-control" id="foto_depan_rumah" name="foto_depan_rumah">
-                        <label for="repassword">Upload Foto Depan Rumah</label>
+                        <label for="repassword">
+                            @if($this->session->user_login['role']=="Mitra")
+                                Upload Foto Depan Rumah Makan / Toko / Perusahaan
+                            @else
+                                Upload Foto Depan Rumah
+                            @endif
+                        </label>
                     </div>
                 </div>
             </div>

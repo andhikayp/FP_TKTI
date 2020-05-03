@@ -38,7 +38,7 @@
             <div class="form-group row">
                 <div class="col-12">
                     <div class="form-material form-material-primary floating input-group">
-                        <input type="text" class="form-control" id="nama" name="nama" value="{{ $menu->nama_menu }}">
+                        <input type="text" class="form-control" id="nama" name="nama" value="{{ $menu->nama_menu }}" required>
                         <label for="username">Nama Menu</label>
                     </div>
                 </div>
@@ -46,7 +46,7 @@
             <div class="form-group row">
                 <div class="col-12">
                     <div class="form-material form-material-primary floating input-group">
-                        <input type="text" class="form-control" id="jumlah" name="jumlah" value="{{ $menu->jumlah }}">
+                        <input type="text" class="form-control" id="jumlah" name="jumlah" value="{{ $menu->jumlah }}" required>
                         <label for="username">Jumlah</label>
                     </div>
                 </div>
