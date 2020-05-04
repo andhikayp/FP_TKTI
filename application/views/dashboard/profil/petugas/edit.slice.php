@@ -102,16 +102,16 @@
             @if($this->session->user_login['role']!="Mitra")
             <div>
                 <div class="col-12">
-                    <div class="form-material form-material-primary floating input-group">
-                        <input type="file" class="form-control" id="foto_ktp" name="foto_ktp">
+                    <div class="form-material form-material-primary input-group">
+                        <input type="file" class="form-control" id="file[]" name="file[]">
                         <label for="repassword">Upload Foto KTP</label>
                     </div>
                 </div>
             </div>
             <div>
                 <div class="col-12">
-                    <div class="form-material form-material-primary floating input-group">
-                        <input type="file" class="form-control" id="foto_kk" name="foto_kk">
+                    <div class="form-material form-material-primary input-group">
+                        <input type="file" class="form-control" id="file[]" name="file[]">
                         <label for="repassword">Upload Foto KK</label>
                     </div>
                 </div>
@@ -119,8 +119,8 @@
             @endif
             <div>
                 <div class="col-12">
-                    <div class="form-material form-material-primary floating input-group">
-                        <input type="file" class="form-control" id="foto_depan_rumah" name="foto_depan_rumah">
+                    <div class="form-material form-material-primary input-group">
+                        <input type="file" class="form-control" id="file[]" name="file[]">
                         <label for="repassword">
                             @if($this->session->user_login['role']=="Mitra")
                                 Upload Foto Depan Rumah Makan / Toko / Perusahaan

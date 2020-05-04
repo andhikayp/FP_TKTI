@@ -33,7 +33,7 @@
         <h3 class="block-title">Manajemen User</h3>
     </div>
     <div class="block-content">
-        <a href="{{ base_url('PetugasController/tambah') }}" class="btn btn-sm bg-earth text-white mb-3"><i class="fa fa-plus mr-2"></i>Tambah User</a>
+        <a href="{{ base_url('PetugasController/tambahUser') }}" class="btn btn-sm bg-earth text-white mb-3"><i class="fa fa-plus mr-2"></i>Tambah User</a>
         <div class="table-responsive">
             <table id="table-ruang" class="stripe table table-stripped">
                 <thead>
@@ -65,11 +65,12 @@
                                 Terverifikasi
                             @endif
                         </td>
-                        <td class="text-center" style="min-width: 260px">
+                        <td class="text-center" style="width: 100%;">
                             <span>
                                 <a href="{{ base_url('PetugasController/indexProfil/'.$data->id) }}" class="btn btn-sm btn-primary mr-2"><i class="fa fa-refresh mr-2"></i>Detail</a>
+                                <button style="margin-top:2%;" value="{{ base_url('PetugasController/deleteUser/'.$data->id) }}" class="btn btn-sm btn-danger hapus-satu"><i class="fa fa-trash mr-2"></i>Hapus</button>
                                 @if($data->is_verif == 0)
-                                <a href="{{ base_url('PetugasController/verifikasi/'.$data->id) }}" class="btn btn-sm btn-danger mr-2"><i class="fa fa-refresh mr-2"></i>Verifikasi</a>
+                                <a  style="margin-top:2%;" href="{{ base_url('PetugasController/verifikasi/'.$data->id) }}" class="btn btn-sm btn-success mr-2"><i class="fa fa-refresh mr-2"></i>Verifikasi</a>
                                 @endif
                                 <!-- <button value="{{ base_url('AdminController/deleteUser/'.$data->id) }}" class="btn btn-sm btn-danger hapus-satu"><i class="fa fa-trash mr-2"></i>Hapus</button> -->
                             </span>

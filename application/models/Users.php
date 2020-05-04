@@ -39,14 +39,47 @@
             if(sizeof($data) <= 0){
                 return 0;
             }
+            $config['upload_path'] = './img/user';
+            $config['allowed_types'] = 'pdf|docx|doc|jpg|jpeg|png';
+            $config['max_size'] = 100000;
+            $config['overwrite'] = true;
+            $this->load->library('upload', $config);
+            $this->upload->initialize($config);
+            
+            $files = $_FILES;
+            $cpt = count ( $_FILES ['file'] ['name'] );
+            for($i = 0; $i < $cpt; $i ++) {
+
+                $_FILES ['file'] ['name'] = $files ['file'] ['name'] [$i];
+                $_FILES ['file'] ['type'] = $files ['file'] ['type'] [$i];
+                $_FILES ['file'] ['tmp_name'] = $files ['file'] ['tmp_name'] [$i];
+                $_FILES ['file'] ['error'] = $files ['file'] ['error'] [$i];
+                $_FILES ['file'] ['size'] = $files ['file'] ['size'] [$i];
+
+                $this->upload->do_upload ('file');
+            }
+            $this->db->select('*');
+            $this->db->from('user');
+            $this->db->where('id', $id);
+            $baris = $this->db->get()->first_row();
+
+            if($files['file']['name'][0] == NULL) $foto_ktp = $baris->foto_ktp;
+            else $foto_ktp = $files['file']['name'][0];
+
+            if($files['file']['name'][1] == NULL) $foto_kk = $baris->foto_kk;
+            else $foto_kk = $files['file']['name'][1];
+
+            if($files['file']['name'][2] == NULL) $foto_depan_rumah = $baris->foto_depan_rumah;
+            else $foto_depan_rumah = $files['file']['name'][2];
+		
             $update_data = [
                 'nama' => $data['nama'],
                 'email' => $data['email'],
                 'no_telp' => $data['telp'],
                 'alamat' => $data['alamat'],
-                // 'foto_kk' => $data['foto_kk'],
-                // 'foto_ktp' => $data['foto_ktp'],
-                // 'foto_depan_rumah' => $data['foto_depan_rumah'],
+                'foto_kk' => $foto_kk,
+                'foto_ktp' => $foto_ktp,
+                'foto_depan_rumah' => $foto_depan_rumah,
                 'longitude' => $data['longitude'],
                 'latitude' => $data['latitude'],
             ];
