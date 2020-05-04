@@ -93,9 +93,20 @@ class PetugasController extends MY_Protectedcontroller
 			$config['overwrite']			= true;
 
 			$this->load->library('upload', $config);
-			$this->upload->do_upload('foto_ktp');
-			$this->upload->do_upload('foto_kk');
-			$this->upload->do_upload('foto_depan_rumah');
+			$this->upload->initialize($config);
+	
+			$files = $_FILES;
+			$cpt = count ( $_FILES ['file'] ['name'] );
+			for($i = 0; $i < $cpt; $i ++) {
+
+				$_FILES ['file'] ['name'] = $files ['file'] ['name'] [$i];
+				$_FILES ['file'] ['type'] = $files ['file'] ['type'] [$i];
+				$_FILES ['file'] ['tmp_name'] = $files ['file'] ['tmp_name'] [$i];
+				$_FILES ['file'] ['error'] = $files ['file'] ['error'] [$i];
+				$_FILES ['file'] ['size'] = $files ['file'] ['size'] [$i];
+
+				$this->upload->do_upload ('file');
+			}
 
 			$insert_data = [
 				'role' => $this->input->post('role'),
@@ -104,9 +115,9 @@ class PetugasController extends MY_Protectedcontroller
 				'password' => $this->input->post('password'),
                 'no_telp' => $this->input->post('telp'),
                 'alamat' => $this->input->post('alamat'),
-				'foto_ktp' => $_FILES["foto_ktp"]["name"],
-				'foto_kk' => $_FILES["foto_kk"]["name"],
-				'foto_depan_rumah' => $_FILES["foto_depan_rumah"]["name"],
+				'foto_ktp' => $files ['file'] ['name'] [0],
+				'foto_kk' => $files ['file'] ['name'] [1],
+				'foto_depan_rumah' => $files ['file'] ['name'] [2],
             ];
             try{
                 $this->db->insert('user', $insert_data);

@@ -119,24 +119,24 @@
             <div class="form-group row">
                 <div class="col-12">
                     <div class="form-material form-material-primary input-group">
-                        <input type="file" class="form-control" id="foto_ktp" name="foto_ktp">
-                        <label for="foto_ktp">Upload Foto KTP</label>
+                        <input type="file" class="form-control" id="file[]" name="file[]">
+                        <label for="file[]">Upload Foto KTP</label>
                     </div>
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-12">
                     <div class="form-material form-material-primary input-group">
-                        <input type="file" class="form-control" id="foto_kk" name="foto_kk">
-                        <label for="foto_kk">Upload Foto KK</label>
+                        <input type="file" class="form-control" id="file[]" name="file[]">
+                        <label for="file[]">Upload Foto KK</label>
                     </div>
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-12">
                     <div class="form-material form-material-primary input-group">
-                        <input type="file" class="form-control" id="foto_depan_rumah" name="foto_depan_rumah">
-                        <label for="foto_depan_rumah">Upload Foto Tambahan (jika ada)</label>
+                        <input type="file" class="form-control" id="file[]" name="file[]">
+                        <label for="file[]">Upload Foto Tambahan (jika ada)</label>
                     </div>
                 </div>
             </div>
