@@ -188,7 +188,14 @@
                         <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Bayar Relawan</span>
                     </a>
                 </li>
-
+                <li>
+                    <a href="{{ base_url('MenuController/daftarMitra') }}" class="
+                        @if($this->router->fetch_class() == 'MenuController')
+                            active
+                        @endif">
+                        <i class="fa fa-file-text"></i><span class="sidebar-mini-hide">Daftar Mitra</span>
+                    </a>
+                </li>
                 @elseif($this->session->user_login['role'] == "Relawan")
                 <li class="nav-main-heading"><span class="sidebar-mini-visible">UI</span><span class="sidebar-mini-hidden">Relawan</span></li>
                 <li>
@@ -228,7 +235,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ base_url('MenuController/index') }}" class="
+                        <a href="{{ base_url('MenuController/index/').$this->session->user_login['id'] }}" class="
                             @if($this->router->fetch_class() == 'MenuController')
                                 active
                             @endif">
