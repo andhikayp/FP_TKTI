@@ -42,6 +42,11 @@ class Query extends CI_Model {
 		$sql = "SELECT harga, jumlah, id_mitra FROM menu WHERE id = ?; " ; 
             return $this->db->query($sql, array($id))->first_row();
 	}
+
+	public function getDataMitra($id){
+		$sql = "SELECT alamat, longitude, latitude FROM user WHERE id = ?; " ; 
+            return $this->db->query($sql, array($id))->first_row();
+	}
 }
 
 /* End of file Query.php */

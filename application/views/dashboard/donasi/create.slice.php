@@ -73,8 +73,8 @@
                 </div>
             </div> -->
 
-            <div class="form-group row">
-                <!-- <div class="col-12">
+            <!-- <div class="form-group row">
+                <div class="col-12">
                     <div class="form-material form-material-primary floating input-group">
                         <input type="text" class="form-control" id="jumlah_makanan" name="jumlah_makanan">
                         <label for="username">Jumlah Makanan</label>
@@ -82,7 +82,7 @@
                             <span class="input-group-text">Contoh: 10</span>
                         </div>
                     </div>
-                </div> -->
+                </div>
                 <div class="col-12">
                     <div class="form-material form-material-primary floating input-group">
                         <input value="" type="text" class="form-control" id="alamat" name="alamat">
@@ -92,8 +92,8 @@
                         </div>
                     </div>
                 </div>
-            </div>      
-            <div class="form-group row">
+            </div>       -->
+            <!-- <div class="form-group row">
                 <div class="col-6">
                     <div class="form-material form-material-primary input-group">
                         <input required="" value="-7.424586942420247" type="text" class="form-control" id="latitude" name="latitude">
@@ -114,11 +114,11 @@
                 <div class="col-12">
                     <div id="map" style="height: 500px"></div>
                 </div>
-            </div>
+            </div> -->
              
             <hr/><div class="row mb-2">
                 <div class="col-3"></div>
-                    <a class="col-3 btn btn-danger" href="{{ base_url('AdminController/userPetugas') }}">Cancel</a>&nbsp
+                    <a class="col-3 btn btn-danger" href="{{ base_url('MenuController/daftarMitra') }}">Cancel</a>&nbsp
                     <button type="submit" class="col-3 btn bg-earth text-white">Submit</button>
                 <div class="col-3"></div>
             </div>

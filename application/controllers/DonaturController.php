@@ -55,10 +55,8 @@ class DonaturController extends CI_Controller {
 			var_dump($this->input->post('id_menu'));
 			
 			$data['menu']=$this->query->getJumlahPesanan($this->input->post('id_menu'));
+			$data['mitra']=$this->query->getDataMitra($data['menu']->id_mitra);
 			$dt = new DateTime();
-
-			//masukin semua hasilnya
-			//random relawan_id
 
 			$insert_data = [
                 'jumlah_makanan' => $data['menu']->jumlah,
@@ -66,9 +64,9 @@ class DonaturController extends CI_Controller {
                 'tanggal_donasi' => $dt->format('Y-m-d H:i:s'),
 				'donatur_id' =>  $this->session->user_login['id'],
 				'deskripsi' => $this->input->post('deskripsi'),
-				'alamat' => $this->input->post('alamat'),
-				'longitude' => $this->input->post('longitude'),
-				'latitude' => $this->input->post('latitude'),
+				'alamat' => $data['mitra']->alamat,
+				'longitude' => $data['mitra']->longitude,
+				'latitude' => $data['mitra']->latitude,
 				'mitra_id' => $data['menu']->id_mitra,
 				'relawan_id' => '6',
                 
@@ -76,7 +74,7 @@ class DonaturController extends CI_Controller {
             try{
                 $this->db->insert('donasi', $insert_data);
                 $this->session->set_flashdata('message', array('type' => 'success', 'message' => ['Sukses Menambah Data Donasi']));
-				return redirect(base_url('DonaturController/index'));	
+				return redirect(base_url('MenuController/daftarMitra'));	
             } catch(Exception $e){
                 $this->session->set_flashdata('message', array('type' => 'error', 'message' => [validation_errors()]));
 				$this->session->set_flashdata('post_data', $this->input->post(NULL, TRUE));
