@@ -39,7 +39,6 @@
                 <thead>
                     <tr>
                         <th class="text-center">No</th>
-                        <th class="text-center">Kategori</th>
                         <th class="text-center">Jumlah Uang</th>
                         <th class="text-center">Jumlah Makanan</th>
                         <th class="text-center">Status</th>
@@ -51,7 +50,6 @@
                     @foreach($donasi as $data)
                     <tr>
                         <td>{{ $no++ }}</td>
-                        <td class="text-center" style="min-width: 150px">{{ $data->kategori }}</td>
                         <td class="" style="min-width: 200px">{{ $data->harga }}</td>
                         <td class="text-center">{{ $data->jumlah_makanan }}</td>
                         <td class="text-center">
