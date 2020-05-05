@@ -20,9 +20,9 @@ class MenuController extends CI_Controller
         }
     }
 
-    public function index()
+    public function index($id)
     {
-		$id = $this->session->user_login['id'];
+		// $id = $this->session->user_login['id'];
 		$data['menu'] = $this->menu->getAllMenu($id);
 		$this->slice->view('dashboard.menu.index', $data);
 	}
@@ -97,6 +97,7 @@ class MenuController extends CI_Controller
 	public function daftarMitra()
 	{
 		$data['mitra'] = $this->menu->getAllMitra();
+		// var_dump($data['mitra'][0]); return;
 		$this->slice->view('dashboard.menu.mitra', $data);
 	}
 }

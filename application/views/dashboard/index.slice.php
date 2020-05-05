@@ -94,6 +94,69 @@
                 </div>
             </div>
         </div>
+        @elseif($this->session->user_login['role']=="Mitra")
+        <div>
+            <p>
+            <h3>Mitra Rumah Makan</h3>
+            Apa saja yang dapat anda lakukan dan anda dapatkan di aplikasi SIMARAK ini sebagai Mitra Kerjasama dalam berbagi kebermanfaatan?<br><br>
+	        <h5>Tugas Mitra</h5>
+            Mitra Rumah Makan membuat makanan berdasarkan permintaan dari admin. Apabila makanan sudah jadi maka akan diambil oleh relawan dan didistribusikan kepada penerima makanan<br><br> 
+
+            <h5>Notifikasi</h5>
+            Mitra Rumah Makan akan mendapatkan notifikasi apabila sistem memilih akun penerima tersebut sebagai penerima makanan.<br><br>
+
+            <h5>Poin dan Hadiah</h5>
+            Mitra Rumah Makan akan mendapatkan tambahan poin jika berpartisipasi dalam aplikasi ini, dan dapat ditukar dengan berbagai hadiah seperti berbagai macam voucher (Ditukarkan pada merchant).<br><br>
+
+            </p>
+        </div>
+        @elseif($this->session->user_login['role']=="Penerima")
+        <div>
+        <p>
+            <h3>Penerima Makanan</h3>
+            Apa saja yang dapat anda lakukan dan anda dapatkan di aplikasi SIMARAK ini sebagai penerima makanan?<br><br>
+            <h5>Meminta makanan</h5>
+            Pengguna yang ingin meminta makanan dapat mendaftarkan diri sebagai penerima makanan. Pengguna harus memasukkan lokasi, foto depan rumah, jumlah yang ingin diminta, serta dana keluarga sesuai jumlah makanan yang diminta. <br><br>
+            <h5>Notifikasi</h5>
+            Penerima akan mendapatkan notifikasi apabila sistem memilih akun penerima tersebut sebagai penerima makanan.<br><br>
+            <h5>Melakukan Konfirmasi</h5>
+            Penerima makanan melakukan konfirmasi bahwa makanan telah diterima dengan menekan tombol “makanan telah diterima”.<br><br>
+            <h5>Poin dan Hadiah</h5>
+            Penerima makanan akan mendapatkan tambahan poin jika berpartisipasi dalam aplikasi ini, dan dapat ditukar dengan berbagai hadiah seperti berbagai macam voucher (Ditukarkan pada merchant).<br><br>
+        </p>
+        </div>
+        @elseif($this->session->user_login['role']=="Donatur")
+        <div>
+            <p>
+                <h3>Donatur</h3>
+                Apa saja yang dapat anda lakukan dan anda dapatkan di aplikasi SIMARAK ini sebagai donatur dalam berbagi kebermanfaatan?<br><br>
+                <h5>Donasi Makanan</h5> 
+                Donatur dapat mendonasikan makanan dengan mengisi form “donasi makanan” pada aplikasi. Form berisi alamat, foto, deskripsi, waktu donasi makanan dan jumlah makanan yang akan dikirimkan. Disediakan 2 opsi untuk donatur dalam memberikan donasinya: mengirim makanan secara langsung atau menggunakan jasa relawan yang mengantarkan makanannya. Jika menggunakan jasa relawan maka relawan tersebut akan mengambil makanan dan mendistribusikannya kepada para penerima.<br><br> 
+                <h5>Donasi uang</h5> 
+                Donatur juga dapat mendonasikan uang untuk biaya operasional. Biaya operasional ditujukan untuk para relawan yang berperan penting dalam pendistribusian makanan. Jika jumlah uang melebihi biaya operasional, maka akan dibelikan makanan melalui mitra kerjasama untuk kemudian didistribusikan.<br><br>
+                <h5>Lokasi Penerima</h5>
+                Donatur dapat mengetahui tujuan donasi makanan diberikan. Donatur dapat melihat lokasi penerima donasi.<br><br>
+                <h5>Notifikasi</h5>
+                Donatur akan mendapatkan notifikasi apabila donasi sudah diterima oleh penerima makanan.<br><br>
+                <h5>Poin dan Hadiah</h5>
+                Donatur akan mendapatkan tambahan poin jika berpartisipasi dalam aplikasi ini, dan dapat ditukar dengan berbagai hadiah seperti berbagai macam voucher (Ditukarkan pada merchant).<br><br>
+            </p>
+        </div>
+        @elseif($this->session->user_login['role']=="Relawan")
+        <div>
+            <p>
+                <h3>Relawan</h3>
+                Apa saja yang dapat anda lakukan dan anda dapatkan di aplikasi SIMARAK ini sebagai Relawan dalam berbagi kebermanfaatan?<br><br>
+                <h5>Tugas Relawan</h5>
+                Relawan bertugas mengambil makanan ke tempat yang telah ditentukan oleh donatur dan mengantarkan makanan tersebut ke penerima makanan yang alamatnya telah dicantumkan pada aplikasi.<br><br>
+                <h5>Notifikasi</h5>
+                Penerima akan mendapatkan notifikasi apabila sistem memilih akun relawan tersebut sebagai pengantar makanan.<br><br>
+                <h5>Pemasukan</h5>
+                Relawan mendapatkan pemasukan keuangan setelah proses pengantaran makanan berhasil dilakukan <br><br>     
+                <h5>Poin dan Hadiah</h5>
+                Relawan akan mendapatkan tambahan poin jika berpartisipasi dalam aplikasi ini, dan dapat ditukar dengan berbagai hadiah seperti berbagai macam voucher (Ditukarkan pada merchant).<br><br>
+            </p>
+        </div>
         @endif
         <!-- <h2 class="content-heading text-default">ALUR PENGISIAN KONDISI KERUSAKAN SEKOLAH</h2>
         <div class="row gutters-tiny">

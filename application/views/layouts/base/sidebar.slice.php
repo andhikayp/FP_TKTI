@@ -188,7 +188,14 @@
                         <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Bayar Relawan</span>
                     </a>
                 </li>
-
+                <li>
+                    <a href="{{ base_url('MenuController/daftarMitra') }}" class="
+                        @if($this->router->fetch_class() == 'MenuController')
+                            active
+                        @endif">
+                        <i class="fa fa-file-text"></i><span class="sidebar-mini-hide">Daftar Mitra</span>
+                    </a>
+                </li>
                 @elseif($this->session->user_login['role'] == "Relawan")
                 <li class="nav-main-heading"><span class="sidebar-mini-visible">UI</span><span class="sidebar-mini-hidden">Relawan</span></li>
                 <li>
@@ -209,14 +216,13 @@
                 </li>
 
                 @elseif($this->session->user_login['role'] == "Mitra")
-                    @if($this->session->user_login['is_verif'] == "1")
                     <li class="nav-main-heading"><span class="sidebar-mini-visible">UI</span><span class="sidebar-mini-hidden">Mitra Pembuat Makanan</span></li>
                     <li>
-                        <a href="{{ base_url('TransaksiController/index') }}" class="
-                            @if($this->router->fetch_class() == 'TransaksiController')
+                        <a href="{{ base_url('MitraController/pesanan_masuk') }}" class="
+                            @if($this->router->fetch_class() == 'MitraController')
                                 active
                             @endif">
-                            <i class="fa fa-credit-card "></i><span class="sidebar-mini-hide">Transaksi</span>
+                            <i class="fa fa-credit-card "></i><span class="sidebar-mini-hide">Pesanan Masuk</span>
                         </a>
                     </li>
                     <li>
@@ -224,11 +230,11 @@
                             @if($this->router->fetch_class() == 'BarangController')
                                 active
                             @endif">
-                            <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Manajemen Barang</span>
+                            <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Pesanan Siap Antar</span>
                         </a>
                     </li>
                     <li>
-                        <a href="{{ base_url('MenuController/index') }}" class="
+                        <a href="{{ base_url('MenuController/index/').$this->session->user_login['id'] }}" class="
                             @if($this->router->fetch_class() == 'MenuController')
                                 active
                             @endif">
