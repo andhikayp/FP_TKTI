@@ -84,14 +84,14 @@
                 @if($this->session->user_login['role'] == "Donatur")
                 <!-- <li class="nav-main-heading"><span class="sidebar-mini-visible">UI</span><span class="sidebar-mini-hidden">Receptionist</span></li> -->
                 <li class="nav-main-heading"><span class="sidebar-mini-visible">UI</span><span class="sidebar-mini-hidden">Donatur</span></li>
-                <li>
+                <!-- <li>
                     <a href="{{ base_url('DonaturController/create') }}" class="
                         @if($this->router->fetch_class() == 'DonaturController')
                             active
                         @endif">
                         <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Tambah Donasi</span>
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a href="{{ base_url('DonaturController/index') }}" class="
                         @if($this->router->fetch_class() == 'DonaturController')

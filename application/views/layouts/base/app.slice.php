@@ -5,7 +5,8 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
-        <title>Kasir Andhika | @yield('title')</title>
+        <title>SIMARAK | @yield('title')</title>
+        <link rel="shortcut icon" href="{{ base_url('codebase/src/assets/media/favicons/favicon.png') }}">
 
         <meta name="description" content="Codebase - Bootstrap 4 Admin Template &amp; UI Framework created by pixelcave and published on Themeforest">
         <meta name="author" content="pixelcave">

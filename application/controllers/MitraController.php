@@ -17,6 +17,7 @@ class MitraController extends CI_Controller
     public function pesanan_masuk()
     {
         $data['donasi'] = $this->query->all('donasi');
+        $data['menu'] = $this->query->all('menu');
         $this->slice->view('dashboard.mitra.pesanan_masuk', $data);
     }
 
@@ -29,6 +30,13 @@ class MitraController extends CI_Controller
 
     public function tolak($id){
         $this->db->set('status_donasi', 2);
+        $this->db->where('id', $id);
+		$status = $this->db->update('donasi');
+		return redirect(base_url('MitraController/pesanan_masuk'));
+    }
+
+    public function antar_pesanan($id){
+        $this->db->set('status_donasi', 3);
         $this->db->where('id', $id);
 		$status = $this->db->update('donasi');
 		return redirect(base_url('MitraController/pesanan_masuk'));
