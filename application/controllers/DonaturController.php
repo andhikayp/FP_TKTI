@@ -49,11 +49,12 @@ class DonaturController extends CI_Controller {
 		}
 	}
 
-	public function post(){
+	public function post($id){
 		if($_SERVER['REQUEST_METHOD'] == "POST"){
+			var_dump($id);
 
 			
-			$data['menu']=$this->query->getJumlahPesanan($menu_id);
+			$data['menu']=$this->query->getJumlahPesanan($id);
 			$dt = new DateTime();
 
 			//masukin semua hasilnya
