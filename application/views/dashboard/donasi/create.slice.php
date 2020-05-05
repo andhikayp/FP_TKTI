@@ -36,7 +36,7 @@
     <div class="block-content">
         <form class="js-validation-bootstrap px-30" method="POST" enctype="multipart/form-data" action="{{ base_url('DonaturController/create') }}" aria-label="">
             <div class="form-group row">
-                <div class="col-12">
+                <!-- <div class="col-12">
                     <input type="text" hidden class="form-control" id="user_id" name="user_id" value="{{ $this->session->user_login['id'] }}">
                     <input type="text" hidden class="form-control" id="tanggal_donasi" name="tanggal_donasi" value="<?php date_default_timezone_set('Asia/Jakarta'); echo date("Y-m-d H:i:s"); ?>">
                     
@@ -47,7 +47,7 @@
                             <option value="Makanan">Makanan</option>
                         </select>
                     </div>
-                </div>
+                </div> -->
                 <div class="col-12">
                     <div class="form-material form-material-primary floating input-group">
                         <input type="text" class="form-control" id="deskripsi" name="deskripsi">
@@ -58,7 +58,7 @@
                     </div>
                 </div>
             </div>
-
+<!-- 
             <div class="form-group row">
                 <div class="col-12">
                     <div class="form-material form-material-primary floating input-group">
@@ -69,10 +69,10 @@
                         </div>
                     </div>
                 </div>
-            </div>
+            </div> -->
 
             <div class="form-group row">
-                <div class="col-12">
+                <!-- <div class="col-12">
                     <div class="form-material form-material-primary floating input-group">
                         <input type="text" class="form-control" id="jumlah_makanan" name="jumlah_makanan">
                         <label for="username">Jumlah Makanan</label>
@@ -80,11 +80,11 @@
                             <span class="input-group-text">Contoh: 10</span>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="col-12">
                     <div class="form-material form-material-primary floating input-group">
                         <input value="" type="text" class="form-control" id="alamat" name="alamat">
-                        <label for="alamat">Alamat</label>
+                        <label for="alamat">Alamat Donatur</label>
                         <div class="input-group-append">
                             <span class="input-group-text">Contoh: Desa Rejeni RT 12 RW 06 Krembung-Sidoarjo</span>
                         </div>

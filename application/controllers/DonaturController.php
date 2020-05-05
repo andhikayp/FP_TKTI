@@ -38,21 +38,37 @@ class DonaturController extends CI_Controller {
 		$this->slice->view('dashboard.donasi.index', $data);
 	}
 
-	public function create()
+	public function create($id)
 	{
 		if ($_SERVER['REQUEST_METHOD'] == "GET"){
 			$this->slice->view('dashboard.donasi.create');
+			//query data menu jumlah, harga, id_menu, mitra_id
 		}
 		elseif($_SERVER['REQUEST_METHOD'] == "POST"){
-			$status = $this->db->insert('donasi', $this->input->post());
-			if(!$status){
-				$this->session->set_flashdata('message', array('type' => 'error', 'message' => [validation_errors()]));
-				$this->session->set_flashdata('post_data', $this->input->post(NULL, TRUE));
-				return redirect(base_url('DonaturController/create'));	
-			}
-			else{
-				$this->session->set_flashdata('message', array('type' => 'success', 'message' => ['Input Donasi Berhasil Dilakukan. Tunggu Proses Verifikasi']));
+			//masukin semua hasilnya
+			//random relawan_id
+
+			$insert_data = [
+                'jumlah_makanan' => $this->input->post('nama'),
+                'harga' => $this->input->post('telp'),
+                'tanggal_donasi' => $this->input->post('telp'),
+				'donatur_id' => $this->input->post('telp'),
+				'deskripsi' => $this->input->post('deskripsi'),
+				'alamat' => $this->input->post('alamat'),
+				'longitude' => $this->input->post('longitude'),
+				'latitude' => $this->input->post('latitude'),
+				'mitra_id' => $this->input->post('latitude'),
+				'relawan_id' => $this->input->post('latitude'),
+                
+            ];
+            try{
+                $this->db->insert('donasi', $insert_data);
+                $this->session->set_flashdata('message', array('type' => 'success', 'message' => ['Sukses Menambah Data Donasi']));
 				return redirect(base_url('DonaturController/index'));	
+            } catch(Exception $e){
+                $this->session->set_flashdata('message', array('type' => 'error', 'message' => [validation_errors()]));
+				$this->session->set_flashdata('post_data', $this->input->post(NULL, TRUE));
+				return redirect(base_url('DonaturController/create'));
 			}
 		}
 		else{
