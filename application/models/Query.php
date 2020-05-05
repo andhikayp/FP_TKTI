@@ -39,9 +39,8 @@ class Query extends CI_Model {
 	}
 
 	public function getJumlahPesanan($id){
-
 		$sql = "SELECT harga, jumlah, id_mitra FROM menu WHERE id = ?; " ; 
-            return $this->db->query($sql, array($id))->result();
+            return $this->db->query($sql, array($id))->first_row();
 	}
 }
 
