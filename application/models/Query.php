@@ -24,7 +24,7 @@ class Query extends CI_Model {
 	{
 		$this->db->select('*');
 		$this->db->from('donasi');
-		$this->db->where('user_id', $id);
+		$this->db->where('donatur_id', $id);
 		$query = $this->db->get();
 		return $query->result();
 	}
