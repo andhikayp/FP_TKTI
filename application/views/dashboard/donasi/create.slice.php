@@ -34,7 +34,7 @@
         <h3 class="block-title">Tambah Donasi</h3>
     </div>
     <div class="block-content">
-        <form class="js-validation-bootstrap px-30" method="POST" enctype="multipart/form-data" action="{{ base_url('DonaturController/post/'.$menu_id) }}" aria-label="">
+        <form class="js-validation-bootstrap px-30" method="POST" enctype="multipart/form-data" action="{{ base_url('DonaturController/posted') }}" aria-label="">
             <div class="form-group row">
                 <!-- <div class="col-12">
                     <input type="text" hidden class="form-control" id="user_id" name="user_id" value="{{ $this->session->user_login['id'] }}">
