@@ -3,6 +3,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class DonaturController extends CI_Controller {
 
+	public $menu_id;
+
 	public function __construct(){
 		parent::__construct();
 		$this->load->library('slice');
@@ -40,25 +42,35 @@ class DonaturController extends CI_Controller {
 
 	public function create($id)
 	{
+
 		if ($_SERVER['REQUEST_METHOD'] == "GET"){
+			$menu_id=$id;
 			$this->slice->view('dashboard.donasi.create');
 			//query data menu jumlah, harga, id_menu, mitra_id
 		}
-		elseif($_SERVER['REQUEST_METHOD'] == "POST"){
+	}
+
+	public function post(){
+		if($_SERVER['REQUEST_METHOD'] == "POST"){
+
+			
+			$data['menu']=$this->query->getJumlahPesanan($menu_id);
+			$dt = new DateTime();
+
 			//masukin semua hasilnya
 			//random relawan_id
 
 			$insert_data = [
-                'jumlah_makanan' => $this->input->post('nama'),
-                'harga' => $this->input->post('telp'),
-                'tanggal_donasi' => $this->input->post('telp'),
-				'donatur_id' => $this->input->post('telp'),
+                'jumlah_makanan' => $data['menu']->jumlah,
+                'harga' => $data['menu']->harga,
+                'tanggal_donasi' => $dt->format('Y-m-d H:i:s'),
+				'donatur_id' =>  $this->session->user_login['id'],
 				'deskripsi' => $this->input->post('deskripsi'),
 				'alamat' => $this->input->post('alamat'),
 				'longitude' => $this->input->post('longitude'),
 				'latitude' => $this->input->post('latitude'),
-				'mitra_id' => $this->input->post('latitude'),
-				'relawan_id' => $this->input->post('latitude'),
+				'mitra_id' => $data['menu']->id_mitra,
+				'relawan_id' => '6',
                 
             ];
             try{
