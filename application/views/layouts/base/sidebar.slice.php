@@ -105,7 +105,7 @@
                         @if($this->router->fetch_class() == 'MenuController')
                             active
                         @endif">
-                        <i class="fa fa-file-text"></i><span class="sidebar-mini-hide">Daftar Mitra</span>
+                        <i class="fa fa-file-text"></i><span class="sidebar-mini-hide">Pemesanan Donasi</span>
                     </a>
                 </li>
                 <!-- <li>
