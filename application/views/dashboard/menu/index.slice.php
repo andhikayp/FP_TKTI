@@ -111,7 +111,13 @@
                         <td class="text-center">{{ $data->jumlah }}</td>
                         
                         <!-- <td class="text-center">{{ $data->tanggal }}</td> -->
-                        <td class="text-center">{{ "Rp " . number_format($data->harga,2,',','.'); }}</td>
+                        <td class="text-center">
+                            @if($this->session->user_login['role'] == "Donatur")
+                            {{ "Rp " . number_format(105/100*$data->harga,2,',','.'); }}
+                            @else
+                            {{ "Rp " . number_format($data->harga,2,',','.'); }}
+                            @endif
+                        </td>
                         <td class="text-center" style="min-width: 260px">
                             <span>
                                 <a href="{{ base_url('MenuController/detail/'.$data->id) }}" class="btn btn-sm btn-info mr-2"><i class="fa fa-exclamation-circle mr-2"></i>Detail</a>
