@@ -241,7 +241,6 @@
                             <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Menu Paket</span>
                         </a>
                     </li>
-                    @endif
                 @endif
             </ul>
         </div>
