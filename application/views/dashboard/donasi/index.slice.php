@@ -64,7 +64,7 @@
                                 @if($data->is_verif == 0 and $this->session->user_login['role']=="Admin")
                                 <a href="{{ base_url('DonaturController/verifikasi/'.$data->id) }}" class="btn btn-sm btn-primary mr-2"><i class="fa fa-refresh mr-2"></i>Verifikasi</a>
                                 @endif
-                                <button value="{{ base_url('DonaturController/detail_donasi/'.$data->id) }}" class="btn btn-sm btn-danger hapus-satu"><i class="fa fa-trash mr-2"></i>Detail</button>
+                                <button value="{{ base_url('DonaturController/detail_donasi/'.$data->id) }}" class="btn btn-sm btn-success"><i class="fa fa-cog mr-5"></i>Detail</button>
                             </span>
                         </td>
                     </tr>

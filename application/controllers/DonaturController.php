@@ -57,10 +57,11 @@ class DonaturController extends CI_Controller {
 			$data['menu']=$this->query->getJumlahPesanan($this->input->post('id_menu'));
 			$data['mitra']=$this->query->getDataMitra($data['menu']->id_mitra);
 			$dt = new DateTime();
+			$harga_plus_gaji = (105/100) * $data['menu']->harga;
 
 			$insert_data = [
                 'jumlah_makanan' => $data['menu']->jumlah,
-                'harga' => $data['menu']->harga,
+                'harga' => $harga_plus_gaji,
                 'tanggal_donasi' => $dt->format('Y-m-d H:i:s'),
 				'donatur_id' =>  $this->session->user_login['id'],
 				'deskripsi' => $this->input->post('deskripsi'),

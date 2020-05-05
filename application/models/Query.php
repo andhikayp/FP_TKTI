@@ -47,6 +47,10 @@ class Query extends CI_Model {
 		$sql = "SELECT alamat, longitude, latitude FROM user WHERE id = ?; " ; 
             return $this->db->query($sql, array($id))->first_row();
 	}
+	public function getMitraByID($id){
+		$sql = "SELECT * FROM user WHERE id = ?; " ; 
+            return $this->db->query($sql, array($id))->first_row();
+	}
 }
 
 /* End of file Query.php */

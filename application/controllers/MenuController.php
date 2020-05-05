@@ -14,6 +14,7 @@ class MenuController extends CI_Controller
 		$this->load->helper('date');
 		$this->load->model('users');
 		$this->load->model('menu');
+		$this->load->model('query');
 
 		if($this->session->user_login['username']){
 			$this->username = $this->session->user_login['username'];			
@@ -24,6 +25,7 @@ class MenuController extends CI_Controller
     {
 		// $id = $this->session->user_login['id'];
 		$data['menu'] = $this->menu->getAllMenu($id);
+		$data['mitra']= $this->query->getMitraByID($id);
 		$this->slice->view('dashboard.menu.index', $data);
 	}
 	

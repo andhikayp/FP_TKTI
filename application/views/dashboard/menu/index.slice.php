@@ -29,6 +29,60 @@
     <span class="breadcrumb-item active">Menu Makanan</span>
 </nav>
 <div class="block">
+    <!-- Profil Mitra -->
+    <div class="block-header block-header-default bg-primary">
+        <h3 class="block-title">Profil Mitra</h3>
+    </div>
+
+    <div class="block-content">
+        <div class="container">
+            <div class="row mb-10">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-sm-5">
+                            <b style="float: right"></style>:</b>
+                            <b>Nama</b>
+                        </div>
+                        <div class="col-md-7">{{ $mitra->nama }}</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-5">
+                            <b style="float: right"></style>:</b>
+                            <b>Alamat</b>
+                        </div>
+                        <div class="col-md-7">{{ $mitra->alamat }}</div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mb-10">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-5">
+                            <b style="float: right"></style>:</b>
+                            <b>Email</b>
+                        </div>
+                        <div class="col-md-7">{{ $mitra->email }}</div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-5">
+                            <b style="float: right"></style>:</b>
+                            <b>Telepon</b>
+                        </div>
+                        <div class="col-md-7">{{ $mitra->no_telp }}</div>
+                    </div>
+                </div>
+            </div>
+            <hr>
+
+           
+        </div>
+    </div>
+
+    <!-- Menu -->
     <div class="block-header block-header-default bg-primary">
         <h3 class="block-title">Menu Makanan</h3>
     </div>
