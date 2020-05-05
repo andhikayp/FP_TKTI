@@ -46,8 +46,14 @@
                     @php $no=1; @endphp
                     @foreach($donasi as $data)
                     <tr>
-                        <td>{{ $no++ }}</td>
-                        <td class="text-center">{{ $data->menu_id }}</td>
+                        <td class="text-center">{{ $no++ }}</td>
+                        <td class="text-center">
+                            @foreach($menu as $datamenu)
+                                @if($datamenu->id == $data->menu_id)
+                                    {{$datamenu->nama_menu}}
+                                @endif
+                            @endforeach
+                        </td>
                         <td class="text-center" >{{ $data->jumlah_makanan }}</td>
                         <td class="text-center">{{ "Rp " . number_format($data->harga,2,',','.'); }}</td>
                         <td class="text-center" >{{ $data->alamat }}</td>
@@ -56,9 +62,11 @@
                             @if($data->status_donasi == 0)
                                 pending
                             @elseif($data->status_donasi == 1)
-                                Pesanan Diterima
+                                Pesanan Sedang Dibuat 
                             @elseif($data->status_donasi == 2)
                                 Pesanan Ditolak
+                            @elseif($data->status_donasi == 3)
+                                Pesanan Diantar
                             @endif
                         </td>
                         <td class="text-center" style="min-width: 260px">
@@ -66,6 +74,8 @@
                                 @if($data->status_donasi == 0 and $this->session->user_login['role']=="Mitra")
                                 <a href="{{ base_url('MitraController/terima/'.$data->id) }}" class="btn btn-sm btn-primary mr-2"><i class="fa fa-refresh mr-2"></i>Terima</a>
                                 <a href="{{ base_url('MitraController/tolak/'.$data->id) }}" class="btn btn-sm btn-danger mr-2"><i class="fa fa-refresh mr-2"></i>Tolak</a>
+                                @elseif($data->status_donasi == 1 and $this->session->user_login['role']=="Mitra")
+                                <a href="{{ base_url('MitraController/antar_pesanan/'.$data->id) }}" class="btn btn-sm btn-primary mr-2"><i class="fa fa-refresh mr-2"></i>Antar Pesanan</a>
                                 @endif
                             </span>
                         </td>
