@@ -90,7 +90,7 @@
             <div class="form-group row">
                 <div class="col-12">
                     <div class="form-material form-material-primary floating input-group">
-                        <input value="{{ $petugas->no_telp }}" type="text" class="form-control" id="jmlh_anggota_keluarga" name="jmlh_anggota_keluarga">
+                        <input value="{{ $petugas->jmlh_anggota_keluarga }}" type="text" class="form-control" id="jmlh_anggota_keluarga" name="jmlh_anggota_keluarga">
                         <label for="telp">Jumlah Anggota Keluarga</label>
                         <div class="input-group-append">
                             <span class="input-group-text">Contoh: 2</span>

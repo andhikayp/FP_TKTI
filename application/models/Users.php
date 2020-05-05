@@ -77,6 +77,7 @@
                 'email' => $data['email'],
                 'no_telp' => $data['telp'],
                 'alamat' => $data['alamat'],
+                'jmlh_anggota_keluarga' => $data['jmlh_anggota_keluarga'],
                 'foto_kk' => $foto_kk,
                 'foto_ktp' => $foto_ktp,
                 'foto_depan_rumah' => $foto_depan_rumah,

@@ -40,12 +40,13 @@
     <div class="block-content">
         <div class="row">
             <div class="col-6">
+                @if($this->session->user_login['role']!="Mitra")
                 <div class="form-group row">
                     <label class="col-12">Foto KTP</label>
                     <div class="col-md-9">
                         @if($petugas->foto_ktp)
                             <!-- <img src="{{ base_url('img/profil/').$petugas->foto }}" alt="" class="img-fluid rounded mx-auto d-bloc"> -->
-                            <img src="{{ base_url('img/profil/user.jpeg') }}" alt="" class="img-fluid rounded mx-auto d-bloc">
+                            <img src="{{ base_url('img/user/').$petugas->foto_ktp }}" alt="" class="img-fluid rounded mx-auto d-bloc">
                         @else
                             <img src="{{ base_url('img/profil/user.jpeg') }}" alt="" class="img-fluid rounded mx-auto d-bloc">
                         @endif
@@ -56,18 +57,19 @@
                     <div class="col-md-9">
                         @if($petugas->foto_kk)
                             <!-- <img src="{{ base_url('img/profil/').$petugas->foto }}" alt="" class="img-fluid rounded mx-auto d-bloc"> -->
-                            <img src="{{ base_url('img/profil/user.jpeg') }}" alt="" class="img-fluid rounded mx-auto d-bloc">
+                            <img src="{{ base_url('img/user/').$petugas->foto_kk }}" alt="" class="img-fluid rounded mx-auto d-bloc">
                         @else
                             <img src="{{ base_url('img/profil/user.jpeg') }}" alt="" class="img-fluid rounded mx-auto d-bloc">
                         @endif
                     </div>
                 </div>
+                @endif
                 <div class="form-group row">
                     <label class="col-12">Foto Rumah Tampak Depan</label>
                     <div class="col-md-9">
                         @if($petugas->foto_depan_rumah)
                             <!-- <img src="{{ base_url('img/profil/').$petugas->foto }}" alt="" class="img-fluid rounded mx-auto d-bloc"> -->
-                            <img src="{{ base_url('img/profil/user.jpeg') }}" alt="" class="img-fluid rounded mx-auto d-bloc">
+                            <img src="{{ base_url('img/user/').$petugas->foto_depan_rumah }}" alt="" class="img-fluid rounded mx-auto d-bloc">
                         @else
                             <img src="{{ base_url('img/profil/user.jpeg') }}" alt="" class="img-fluid rounded mx-auto d-bloc">
                         @endif
@@ -99,6 +101,14 @@
                         <div class="form-control-plaintext"><i class="fa fa-arrow-right mr-5"></i><b>{{ $petugas->no_telp ? $petugas->no_telp : "-" }}</b></div>
                     </div>
                 </div>
+                @if($this->session->user_login['role']!="Mitra")
+                <div class="form-group row">
+                    <label class="col-12">Jumlah Anggota Keluarga</label>
+                    <div class="col-md-9">
+                        <div class="form-control-plaintext"><i class="fa fa-arrow-right mr-5"></i><b>{{ $petugas->jmlh_anggota_keluarga ? $petugas->jmlh_anggota_keluarga : "-" }}</b></div>
+                    </div>
+                </div>
+                @endif
                 <div class="form-group row">
                     <label class="col-12">Status</label>
                     <div class="col-md-9">
@@ -114,7 +124,7 @@
                 </div>
                 <div class="form-group row">
                     <div class="col-md-9">
-                        <div class="form-control-plaintext"><i class="fa fa-arrow-right mr-5"></i><b>
+                        <!-- <div class="form-control-plaintext"><i class="fa fa-arrow-right mr-5"></i><b> -->
                         @if($petugas->is_verif == 0 and $this->session->user_login['role'] == "Admin")
                         <a href="{{ base_url('PetugasController/verifikasi/'.$petugas->id) }}" class="btn btn-sm btn-danger mr-2"><i class="fa fa-refresh mr-2"></i>Verifikasi</a>
                         @endif  
