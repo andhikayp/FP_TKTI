@@ -165,14 +165,6 @@
                     </a>
                 </li>
                 <li>
-                    <a href="{{ base_url('DonaturController/list_request') }}" class="
-                        @if($this->router->fetch_class() == 'DonaturController')
-                            active
-                        @endif">
-                        <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Manajemen Permintaan</span>
-                    </a>
-                </li>
-                <li>
                     <a href="{{ base_url('BarangController/index') }}" class="
                         @if($this->router->fetch_class() == 'BarangController')
                             active
