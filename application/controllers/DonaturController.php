@@ -42,10 +42,9 @@ class DonaturController extends CI_Controller {
 
 	public function create($id)
 	{
-
 		if ($_SERVER['REQUEST_METHOD'] == "GET"){
-			$menu_id=$id;
-			$this->slice->view('dashboard.donasi.create');
+			$data['menu_id']=$id;
+			$this->slice->view('dashboard.donasi.create', $data);
 			//query data menu jumlah, harga, id_menu, mitra_id
 		}
 	}

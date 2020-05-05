@@ -48,6 +48,8 @@
                         </select>
                     </div>
                 </div> -->
+                <input type="text" class="form-control" id="id_menu" name="id_menu" value="{{ $menu_id }}" hidden>
+
                 <div class="col-12">
                     <div class="form-material form-material-primary floating input-group">
                         <input type="text" class="form-control" id="deskripsi" name="deskripsi">
