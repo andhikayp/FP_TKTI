@@ -87,7 +87,9 @@ class DonaturController extends CI_Controller {
                 
             ];
             try{
-                $this->db->insert('donasi', $insert_data);
+				$this->db->insert('donasi', $insert_data);
+				
+
                 $this->session->set_flashdata('message', array('type' => 'success', 'message' => ['Sukses Menambah Data Donasi']));
 				return redirect(base_url('DonaturController/daftarPenerima'));	
             } catch(Exception $e){
@@ -102,7 +104,13 @@ class DonaturController extends CI_Controller {
 	}
 
 	public function daftarPenerima(){
-		$this->slice->view('dashboard.donasi.daftar_penerima');
+		$data['penerima']= $this->query->getPenerima();
+		$this->slice->view('dashboard.donasi.daftar_penerima',$data);
+	}
+
+	public function detail_penerima($id){
+		$data['penerima']= $this->query->getPenerimaByID($id);
+		$this->slice->view('dashboard.donasi.detail_penerima',$data);
 	}
 
 	public function verifikasi($id)
