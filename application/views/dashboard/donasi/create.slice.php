@@ -50,7 +50,42 @@
                 </div> -->
                 <input type="text" class="form-control" id="id_menu" name="id_menu" value="{{ $menu_id }}" hidden>
 
+                 <!-- Jumlah Transfer -->
+            <div class="block-content">
+                <div class="container">
+                    <div class="row mb-10">
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <div class="col-sm-5">
+                                    <b style="float: right"></style>:</b>
+                                    <b>Jumlah Transfer</b>
+                                </div>
+                                <div class="col-md-7">{{ $jumlah_transfer }}</div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group row">
+                                <div class="col-md-5">
+                                    <b style="float: right"></style>:</b>
+                                    <b>No Rekening</b>
+                                </div>
+                                <div class="col-md-7">{{ $mitra->alamat }}</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+            <div class="form-group row">
                 <div class="col-12">
+                    <div class="form-material form-material-primary input-group">
+                        <input type="file" class="form-control" id="bukti" name="bukti">
+                        <label for="bukti">Upload Bukti Transfer</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-12">
                     <div class="form-material form-material-primary floating input-group">
                         <input type="text" class="form-control" id="deskripsi" name="deskripsi">
                         <label for="username">Deskripsi</label>
@@ -59,7 +94,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
 <!-- 
             <div class="form-group row">
                 <div class="col-12">

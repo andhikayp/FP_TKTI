@@ -44,6 +44,9 @@ class DonaturController extends CI_Controller {
 	{
 		if ($_SERVER['REQUEST_METHOD'] == "GET"){
 			$data['menu_id']=$id;
+			$data['menu']=$this->query->getJumlahPesanan($id);
+			$data['mitra']=$this->query->getDataMitra($data['menu']->id_mitra);
+			$data['jumlah_transfer'] = (105/100) * $data['menu']->harga * $data['menu']->jumlah;
 			$this->slice->view('dashboard.donasi.create', $data);
 			//query data menu jumlah, harga, id_menu, mitra_id
 		}
@@ -52,12 +55,22 @@ class DonaturController extends CI_Controller {
 	public function posted(){
 		if($_SERVER['REQUEST_METHOD'] == "POST"){
 
-			var_dump($this->input->post('id_menu'));
+			$config['upload_path']          = './img/folder_bukti/';
+			$config['allowed_types']        = 'gif|jpg|png|jpeg';
+			$config['max_size']             = 30000;
+			$config['max_width']            = 1024;
+			$config['max_height']           = 768;
+			$config['overwrite']			= true;
+
+			$this->load->library('upload', $config);
+			$this->upload->do_upload('bukti');
 			
 			$data['menu']=$this->query->getJumlahPesanan($this->input->post('id_menu'));
 			$data['mitra']=$this->query->getDataMitra($data['menu']->id_mitra);
 			$dt = new DateTime();
 			$harga_plus_gaji = (105/100) * $data['menu']->harga;
+
+			
 
 			$insert_data = [
                 'jumlah_makanan' => $data['menu']->jumlah,
@@ -70,12 +83,13 @@ class DonaturController extends CI_Controller {
 				'latitude' => $data['mitra']->latitude,
 				'mitra_id' => $data['menu']->id_mitra,
 				'relawan_id' => '6',
+				'bukti' => $_FILES["bukti"]["name"],
                 
             ];
             try{
                 $this->db->insert('donasi', $insert_data);
                 $this->session->set_flashdata('message', array('type' => 'success', 'message' => ['Sukses Menambah Data Donasi']));
-				return redirect(base_url('MenuController/daftarMitra'));	
+				return redirect(base_url('DonaturController/daftarPenerima'));	
             } catch(Exception $e){
                 $this->session->set_flashdata('message', array('type' => 'error', 'message' => [validation_errors()]));
 				$this->session->set_flashdata('post_data', $this->input->post(NULL, TRUE));
@@ -85,6 +99,10 @@ class DonaturController extends CI_Controller {
 		else{
 			show_error("Method Not Allowed", 405);
 		}
+	}
+
+	public function daftarPenerima(){
+		$this->slice->view('dashboard.donasi.daftar_penerima');
 	}
 
 	public function verifikasi($id)
