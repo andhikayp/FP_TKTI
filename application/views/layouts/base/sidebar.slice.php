@@ -191,21 +191,21 @@
                 @elseif($this->session->user_login['role'] == "Relawan")
                 <li class="nav-main-heading"><span class="sidebar-mini-visible">UI</span><span class="sidebar-mini-hidden">Relawan</span></li>
                 <li>
-                    <a href="{{ base_url('TransaksiController/index') }}" class="
-                        @if($this->router->fetch_class() == 'TransaksiController')
+                    <a href="{{ base_url('DonaturController/kirim/').$this->session->user_login['id'] }}" class="
+                        @if($this->router->fetch_class() == 'DonaturController')
                             active
                         @endif">
-                        <i class="fa fa-credit-card "></i><span class="sidebar-mini-hide">Transaksi</span>
+                        <i class="fa fa-credit-card "></i><span class="sidebar-mini-hide">Pengantaran Makanan</span>
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="{{ base_url('BarangController/index') }}" class="
                         @if($this->router->fetch_class() == 'BarangController')
                             active
                         @endif">
                         <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Manajemen Barang</span>
                     </a>
-                </li>
+                </li> -->
 
                 @elseif($this->session->user_login['role'] == "Mitra")
                     <li class="nav-main-heading"><span class="sidebar-mini-visible">UI</span><span class="sidebar-mini-hidden">Mitra Pembuat Makanan</span></li>

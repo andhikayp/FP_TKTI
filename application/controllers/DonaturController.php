@@ -70,14 +70,13 @@ class DonaturController extends CI_Controller {
 			$dt = new DateTime();
 			$harga_plus_gaji = (105/100) * $data['menu']->harga;
 
-			
-
 			$insert_data = [
                 'jumlah_makanan' => $data['menu']->jumlah,
                 'harga' => $harga_plus_gaji,
                 'tanggal_donasi' => $dt->format('Y-m-d H:i:s'),
 				'donatur_id' =>  $this->session->user_login['id'],
 				'deskripsi' => $this->input->post('deskripsi'),
+				'nama_mitra' => $data['mitra']->nama, 
 				'alamat' => $data['mitra']->alamat,
 				'longitude' => $data['mitra']->longitude,
 				'latitude' => $data['mitra']->latitude,
@@ -123,8 +122,6 @@ class DonaturController extends CI_Controller {
 
 					if ($jumlah_makanan == -100) break;
 				}
-				
-
                 $this->session->set_flashdata('message', array('type' => 'success', 'message' => ['Sukses Menambah Data Donasi']));
 				return redirect(base_url('DonaturController/detail_donasi/'.$id_donasi));	
             } catch(Exception $e){
@@ -232,6 +229,13 @@ class DonaturController extends CI_Controller {
 		$data['penerima'] = $this->users->getPenerima($id);
 		$data['progres'] = ($this->users->getPenerimaDone($id)->done / count($data['penerima'])) * 100;
 		$this->slice->view('dashboard.donasi.detail_donasi', $data);
+	}
+
+	public function kirim($id)
+	{
+		// var_dump($id); return;
+		$data['kirim'] = $this->query->kirim($id);
+		$this->slice->view('dashboard.donasi.kirim', $data);
 	}
 }
 
