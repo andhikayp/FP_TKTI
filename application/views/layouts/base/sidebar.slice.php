@@ -128,17 +128,17 @@
                 @elseif($this->session->user_login['role'] == "Penerima")
                 @if($this->session->user_login['is_verif'] == "1")
                     <li class="nav-main-heading"><span class="sidebar-mini-visible">UI</span><span class="sidebar-mini-hidden">Penerima Makanan</span></li>
-                    <li>
+                    <!-- <li>
                         <a href="{{ base_url('DonaturController/request') }}" class="
                             @if($this->router->fetch_class() == 'DonaturController')
                                 active
                             @endif">
                             <i class="fa fa-credit-card "></i><span class="sidebar-mini-hide">Tambah Permintaan</span>
                         </a>
-                    </li>
+                    </li> -->
                     <li>
-                        <a href="{{ base_url('DonaturController/list_request') }}" class="
-                            @if($this->router->fetch_class() == 'DonaturController')
+                        <a href="{{ base_url('PenerimaController/riwayat_penerimaan') }}" class="
+                            @if($this->router->fetch_class() == 'PenerimaController')
                                 active
                             @endif">
                             <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Riwayat Permintaan</span>
