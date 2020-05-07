@@ -31,13 +31,14 @@ class PenerimaController extends CI_Controller {
 
 	public function detail($id){
 
-		var_dump($id);
 		$data['penerima_donasi'] = $this->query->find('penerima_donasi', $id);
 		$data['donasi'] = $this->query->find('donasi', $data['penerima_donasi']->id_donasi);
 		$data['donatur'] = $this->query->find('user', $data['donasi']->donatur_id);
 		$data['mitra'] = $this->query->find('user', $data['donasi']->mitra_id);
 		$data['relawan'] = $this->query->find('user', $data['donasi']->relawan_id);
 		$data['menu'] = $this->query->find('menu', $data['donasi']->menu_id);
+		$data['penerima'] = $this->users->getPenerima($data['donasi']->id);
+		$data['progres'] = ($this->users->getPenerimaDone($data['donasi']->id)->done / count($data['penerima'])) * 100;
 		// $data['penerima'] = $this->users->getPenerima($id);
 
 		// $data['penerima']=$this->query->getDetailPenerimaan($penerima_donasi_id);

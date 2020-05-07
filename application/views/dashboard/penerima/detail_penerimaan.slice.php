@@ -139,7 +139,7 @@
                             <b>Progres pengiriman</b>
                         </div>
                         <div class="col-md-7">
-                            <a style="color: #3f9ce8 !important;" href="" target="_blank">lol</a>
+                        <a style="color: #3f9ce8 !important;" href="" target="_blank">{{ $progres }} %</a>
                         </div>
                     </div>
                 </div>
