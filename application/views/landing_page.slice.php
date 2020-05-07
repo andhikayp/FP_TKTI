@@ -329,11 +329,11 @@
                     </div>
                 </div>
 
-                <div class="content content-full" id="itungan" style="border: solid black 10px; background: white">
+                <div class="content content-full" data-toggle="appear" id="itungan" style="border: solid #bf3131 5px; border-radius:0px 10% 10% 10%; padding:4%;">
                     <div class="row">
                         <div class="col-lg-10 col-md-10">
-                            <div class="section-tittle">
-                                <h2>Sebaran Penerima Bantuan Makanan</h2>
+                            <div class="section-tittle" style="text-align: center;">
+                                <h2 style="text-align: center; margin-bottom:0px;">Sebaran Penerima Bantuan Makanan</h2>
                             </div>
                         </div>
                     </div>
@@ -346,7 +346,7 @@
                 <!-- END Page Content -->
 
                 <!-- Best Features Start -->
-                <section class="best-features-area inner-padding" id="layanan">
+                <section class="best-features-area inner-padding" data-toggle="appear" id="layanan">
                     <div class="container">
                         <div class="row justify-content-end">
                             <div class="col-xl-8 col-lg-10">
@@ -416,7 +416,7 @@
                 <!-- Best Features End -->
 
                 <!-- Applic App Start -->
-                <div class="applic-apps section-padding2" style="margin-top:10%;margin-bottom:5%;" id="tentang-kami">
+                <div class="applic-apps section-padding2"data-toggle="appear" style="margin-top:10%;margin-bottom:5%;" id="tentang-kami">
                     <div class="container-fluid">
                         <div class="row">
                             <!-- slider Heading -->

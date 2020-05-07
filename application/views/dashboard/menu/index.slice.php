@@ -26,6 +26,7 @@
 
 <nav class="breadcrumb bg-white push">
     <a class="breadcrumb-item" href="{{ base_url('/') }}">Dashboard</a>
+    <a class="breadcrumb-item" href="{{ base_url('MenuController/daftarMitra') }}">Daftar Mitra</a>
     <span class="breadcrumb-item active">Menu Makanan</span>
 </nav>
 <div class="block">

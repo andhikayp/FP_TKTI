@@ -26,9 +26,9 @@
 
 <nav class="breadcrumb bg-white push">
     <a class="breadcrumb-item" href="{{ base_url('/') }}">Dashboard</a>
-    <a class="breadcrumb-item" href="">Detail Penerimaan Donasi</a>
+    <a class="breadcrumb-item" href="{{ base_url('PenerimaController/riwayat_penerimaan') }}">Riwayat Penerimaan</a>
+    <span class="breadcrumb-item active" href="">Detail Penerimaan Donasi</span>
     
-    <span class="breadcrumb-item active">lol</span>
 </nav>
 <div class="block block-themed">
     <div class="block-header bg-gd-lake">
