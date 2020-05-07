@@ -130,8 +130,6 @@ class DonaturController extends CI_Controller {
 
 					if ($jumlah_makanan == -100) break;
 				}
-<<<<<<< Updated upstream
-=======
 
 				// var_dump($data['relawan']->jmlh_terima_makanan);
 				//update relawan
@@ -141,7 +139,6 @@ class DonaturController extends CI_Controller {
 				// $status = $this->db->update('user');
 				
 
->>>>>>> Stashed changes
                 $this->session->set_flashdata('message', array('type' => 'success', 'message' => ['Sukses Menambah Data Donasi']));
 				return redirect(base_url('DonaturController/detail_donasi/'.$id_donasi));	
             } catch(Exception $e){

@@ -76,14 +76,11 @@ class Query extends CI_Model {
             return $this->db->query($sql, array($id))->result();
 	}
 
-<<<<<<< Updated upstream
 	public function kirim($id)
 	{
 		$sql = "SELECT * FROM donasi WHERE relawan_id = ? AND is_verif = 1 AND status_donasi = 3;"; 
 		return $this->db->query($sql, array($id))->result();
 	}
-=======
->>>>>>> Stashed changes
 }
 
 /* End of file Query.php */
