@@ -72,13 +72,19 @@ class Query extends CI_Model {
             return $this->db->query($sql, array($tanggal))->first_row();
 	}
 	public function getRiwayatPenerima($id){
-		$sql = "SELECT penerima_donasi.* , donasi.tanggal_donasi , user.nama, donasi.menu_id, donasi.mitra_id, donasi.relawan_id from penerima_donasi JOIN donasi ON penerima_donasi.id_donasi = donasi.id AND penerima_donasi.penerima_id = ? JOIN user ON user.id = donasi.donatur_id WHERE donasi.is_verif = 1 and donasi.status_donasi = 3;" ; 
+		$sql = "SELECT penerima_donasi.* , donasi.tanggal_donasi , user.nama, donasi.menu_id, donasi.mitra_id, donasi.relawan_id from penerima_donasi JOIN donasi ON penerima_donasi.id_donasi = donasi.id AND penerima_donasi.penerima_id = ? JOIN user ON user.id = donasi.donatur_id WHERE donasi.is_verif = 1 and (donasi.status_donasi = 3 or donasi.status_donasi = 4);" ; 
             return $this->db->query($sql, array($id))->result();
 	}
 
 	public function kirim($id)
 	{
-		$sql = "SELECT * FROM donasi WHERE relawan_id = ? AND is_verif = 1 AND status_donasi = 3;"; 
+		$sql = "SELECT * FROM donasi WHERE relawan_id = ? AND is_verif = 1 AND (status_donasi = 3 or status_donasi = 4);"; 
+		return $this->db->query($sql, array($id))->result();
+	}
+
+	public function cek_selesai($id)
+	{
+		$sql = "SELECT * FROM penerima_donasi p WHERE p.id_donasi= ? AND p.bukti IS NULL;";
 		return $this->db->query($sql, array($id))->result();
 	}
 }

@@ -20,10 +20,6 @@ class PenerimaController extends CI_Controller {
 		}
 	}
 
-	public function index()
-	{
-	}
-
 	public function riwayat_penerimaan(){
 		$data['penerima']=$this->query->getRiwayatPenerima($this->session->user_login['id']);
 		$this->slice->view('dashboard.penerima.riwayat_penerimaan',$data);
@@ -54,8 +50,8 @@ class PenerimaController extends CI_Controller {
 	}
 
 	public function upload_bukti2(){
+		$data['penerima'] = $this->query->find('penerima_donasi', $this->input->post('id_penerima_donasi')); 
 		if($_SERVER['REQUEST_METHOD'] == "POST"){
-
 			$config['upload_path']          = './img/folder_bukti';
 			$config['allowed_types']        = 'gif|jpg|png|jpeg';
 			$config['max_size']             = 30000;
@@ -65,13 +61,17 @@ class PenerimaController extends CI_Controller {
 
 			$this->load->library('upload', $config);
 			$this->upload->do_upload('bukti');
-
-			
-	
             try{
 				$this->db->set('bukti', $_FILES["bukti"]["name"]);
 				$this->db->where('id', $this->input->post('id_penerima_donasi'));
 				$status = $this->db->update('penerima_donasi');
+
+				$cek_selesai = $this->query->cek_selesai($data['penerima']->id_donasi);
+				if (!$cek_selesai) {
+					$this->db->set('status_donasi', 4);
+					$this->db->where('id', $data['penerima']->id_donasi);
+					$this->db->update('donasi');
+				}
 
                 $this->session->set_flashdata('message', array('type' => 'success', 'message' => ['Sukses Upload Bukti Makanan Diterima']));
 				return redirect(base_url('PenerimaController/riwayat_penerimaan'));	
@@ -84,7 +84,6 @@ class PenerimaController extends CI_Controller {
 		else{
 			show_error("Method Not Allowed", 405);
 		}
-		
 	}
 
 }
