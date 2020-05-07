@@ -59,6 +59,10 @@ class Query extends CI_Model {
 		$sql = "SELECT * FROM user WHERE id = ?;" ; 
             return $this->db->query($sql, array($id))->first_row();
 	}
+	public function getIDDonasi($tanggal){
+		$sql = "SELECT * FROM donasi WHERE tanggal_donasi = ?;" ; 
+            return $this->db->query($sql, array($tanggal))->first_row();
+	}
 }
 
 /* End of file Query.php */

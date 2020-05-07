@@ -88,10 +88,25 @@ class DonaturController extends CI_Controller {
             ];
             try{
 				$this->db->insert('donasi', $insert_data);
+				$data['donasi'] =  $this->query->getIDDonasi($dt->format('Y-m-d H:i:s'));
+				$data['penerima']= $this->query->getPenerima();
 				
+				$insert_data = [
+					'penerima_id' => $data['penerima']->id,
+					'nama' => $data['penerima']->nama,
+					'alamat' => $data['penerima']->alamat,
+					'telp' =>  $data['penerima']->no_telp,
+					'jumlah_makanan' => $data['penerima']->jmlh_terima_makanan,
+					'longitude' => $data['penerima']->longitude,
+					'latitude' => $data['penerima']->latitude,
+					'id_donasi' => $data['donasi']->id,
+					'flag_kirim' => '0',
+					
+				];
+				$this->db->insert('penerima_donasi', $insert_data);
 
                 $this->session->set_flashdata('message', array('type' => 'success', 'message' => ['Sukses Menambah Data Donasi']));
-				return redirect(base_url('DonaturController/daftarPenerima'));	
+				return redirect(base_url('DonaturController/detail_donasi/'.$data['donasi']->id));	
             } catch(Exception $e){
                 $this->session->set_flashdata('message', array('type' => 'error', 'message' => [validation_errors()]));
 				$this->session->set_flashdata('post_data', $this->input->post(NULL, TRUE));
@@ -104,7 +119,6 @@ class DonaturController extends CI_Controller {
 	}
 
 	public function daftarPenerima(){
-		$data['penerima']= $this->query->getPenerima();
 		$this->slice->view('dashboard.donasi.daftar_penerima',$data);
 	}
 
@@ -191,13 +205,13 @@ class DonaturController extends CI_Controller {
 	public function detail_donasi($id)
 	{
 		$data['donasi'] = $this->query->find('donasi', $id);
-		$data['donatur'] = $this->query->find('user', $data['donasi']->user_id);
+		$data['donatur'] = $this->query->find('user', $data['donasi']->donatur_id);
 		$data['mitra'] = $this->query->find('user', $data['donasi']->mitra_id);
 		$data['relawan'] = $this->query->find('user', $data['donasi']->relawan_id);
+		$data['menu'] = $this->query->find('menu', $data['donasi']->menu_id);
 		$data['penerima'] = $this->users->getPenerima($id);
 		// var_dump($data); return;
 		$this->slice->view('dashboard.donasi.detail_donasi', $data);
-		
 	}
 }
 
