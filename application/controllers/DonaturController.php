@@ -46,7 +46,7 @@ class DonaturController extends CI_Controller {
 			$data['menu_id']=$id;
 			$data['menu']=$this->query->getJumlahPesanan($id);
 			$data['mitra']=$this->query->getDataMitra($data['menu']->id_mitra);
-			$data['jumlah_transfer'] = (105/100) * $data['menu']->harga * $data['menu']->jumlah;
+			$data['jumlah_transfer'] = (105/100) * $data['menu']->harga;
 			$this->slice->view('dashboard.donasi.create', $data);
 			//query data menu jumlah, harga, id_menu, mitra_id
 		}
