@@ -90,23 +90,29 @@ class DonaturController extends CI_Controller {
 				$this->db->insert('donasi', $insert_data);
 				$data['donasi'] =  $this->query->getIDDonasi($dt->format('Y-m-d H:i:s'));
 				$data['penerima']= $this->query->getPenerima();
-			
-				$insert_data = [
-					'penerima_id' => $data['penerima']->id,
-					'nama' => $data['penerima']->nama,
-					'alamat' => $data['penerima']->alamat,
-					'telp' =>  $data['penerima']->no_telp,
-					'jumlah_makanan' => $data['penerima']->jmlh_terima_makanan,
-					'longitude' => $data['penerima']->longitude,
-					'latitude' => $data['penerima']->latitude,
-					'id_donasi' => $data['donasi']->id,
-					'flag_kirim' => '0',
-					
-				];
-				$this->db->insert('penerima_donasi', $insert_data);
+				// var_dump($data['donasi']->jumlah_makanan); return;
+				$jumlah_makanan = $data['donasi']->jumlah_makanan;
+				$id_donasi = $data['donasi']->id;
+				foreach ($data['penerima'] as $data) {
+					// if ($jumlah_makanan) {
+						
+					// }
+					$insert_data = [
+						'penerima_id' => $data->id,
+						'nama' => $data->nama,
+						'alamat' => $data->alamat,
+						'telp' =>  $data->no_telp,
+						'jumlah_makanan' => $data->jmlh_terima_makanan,
+						'longitude' => $data->longitude,
+						'latitude' => $data->latitude,
+						'id_donasi' => $id_donasi,
+						'flag_kirim' => '0',
+					];
+					$this->db->insert('penerima_donasi', $insert_data);
+				}
 
                 $this->session->set_flashdata('message', array('type' => 'success', 'message' => ['Sukses Menambah Data Donasi']));
-				return redirect(base_url('DonaturController/detail_donasi/'.$data['donasi']->id));	
+				return redirect(base_url('DonaturController/detail_donasi/'.$id_donasi));	
             } catch(Exception $e){
                 $this->session->set_flashdata('message', array('type' => 'error', 'message' => [validation_errors()]));
 				$this->session->set_flashdata('post_data', $this->input->post(NULL, TRUE));

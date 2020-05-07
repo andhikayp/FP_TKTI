@@ -51,10 +51,12 @@ class Query extends CI_Model {
 		$sql = "SELECT * FROM user WHERE id = ?; " ; 
             return $this->db->query($sql, array($id))->first_row();
 	}
+
 	public function getPenerima(){
 		$sql = "SELECT * FROM user WHERE role = 'Penerima' AND is_verif=1 ORDER BY jmlh_terima_makanan DESC;" ; 
-            return $this->db->query($sql)->result();
+        return $this->db->query($sql)->result();
 	}
+
 	public function getPenerimaByID($id){
 		$sql = "SELECT * FROM user WHERE id = ?;" ; 
             return $this->db->query($sql, array($id))->first_row();
