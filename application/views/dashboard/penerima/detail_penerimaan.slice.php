@@ -80,7 +80,15 @@
                             <b>Status</b>
                         </div>
                         <div class="col-md-7">
-                        {{ $donasi->status_donasi }}
+                        @if($donasi->status_donasi == 0)
+                            Pending
+                        @elseif($donasi->status_donasi == 1)
+                            Pesanan Sedang Dibuat
+                        @elseif($donasi->status_donasi == 2)
+                            Pesanan Ditolak
+                        @elseif($donasi->status_donasi == 3)
+                            Pesanan Sedang Diantar
+                        @endif
                         </div>
                     </div>
                 </div>

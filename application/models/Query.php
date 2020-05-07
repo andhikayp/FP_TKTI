@@ -57,6 +57,11 @@ class Query extends CI_Model {
         return $this->db->query($sql)->result();
 	}
 
+	public function getRelawanOrderBy(){
+		$sql = "SELECT * FROM user WHERE role = 'Relawan' ORDER BY jmlh_terima_makanan ASC;" ; 
+        return $this->db->query($sql)->first_row();
+	}
+
 	public function getPenerimaByID($id){
 		$sql = "SELECT u.*, p.bukti, p.jumlah_makanan, p.penerima_id, p.id_donasi FROM penerima_donasi p JOIN user u on p.penerima_id = u.id WHERE p.id = ?;" ; 
         return $this->db->query($sql, array($id))->first_row();
@@ -71,11 +76,14 @@ class Query extends CI_Model {
             return $this->db->query($sql, array($id))->result();
 	}
 
+<<<<<<< Updated upstream
 	public function kirim($id)
 	{
 		$sql = "SELECT * FROM donasi WHERE relawan_id = ? AND is_verif = 1 AND status_donasi = 3;"; 
 		return $this->db->query($sql, array($id))->result();
 	}
+=======
+>>>>>>> Stashed changes
 }
 
 /* End of file Query.php */

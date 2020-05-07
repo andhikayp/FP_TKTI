@@ -67,6 +67,8 @@ class DonaturController extends CI_Controller {
 			
 			$data['menu']=$this->query->getJumlahPesanan($this->input->post('id_menu'));
 			$data['mitra']=$this->query->getDataMitra($data['menu']->id_mitra);
+			$data['relawan']=$this->query->getRelawanOrderBy();
+			var_dump($data['relawan']);
 			$dt = new DateTime();
 			$harga_plus_gaji = (105/100) * $data['menu']->harga;
 
@@ -81,15 +83,21 @@ class DonaturController extends CI_Controller {
 				'longitude' => $data['mitra']->longitude,
 				'latitude' => $data['mitra']->latitude,
 				'mitra_id' => $data['menu']->id_mitra,
-				'relawan_id' => '6',
+				'relawan_id' => $data['relawan']->id,
 				'menu_id' => $this->input->post('id_menu'),
 				'bukti' => $_FILES["bukti"]["name"],
                 
-            ];
+			];
+
+			$update_jumlah_antar = $data['relawan']->jmlh_terima_makanan + 1;
+				$this->db->set('jmlh_terima_makanan', $update_jumlah_antar);
+				$this->db->where('id', $data['relawan']->id);
+				$status = $this->db->update('user');
             try{
 				$this->db->insert('donasi', $insert_data);
 				$data['donasi'] =  $this->query->getIDDonasi($dt->format('Y-m-d H:i:s'));
 				$data['penerima']= $this->query->getPenerima();
+				$data['relawan']=$this->query->getRelawanOrderBy();
 				// var_dump($data['donasi']->jumlah_makanan); return;
 				$jumlah_makanan = $data['donasi']->jumlah_makanan;
 				$id_donasi = $data['donasi']->id;
@@ -122,6 +130,18 @@ class DonaturController extends CI_Controller {
 
 					if ($jumlah_makanan == -100) break;
 				}
+<<<<<<< Updated upstream
+=======
+
+				// var_dump($data['relawan']->jmlh_terima_makanan);
+				//update relawan
+				// $update_jumlah_antar = $data['relawan']->jmlh_terima_makanan + 1;
+				// $this->db->set('jmlh_terima_makanan', $update_jumlah_antar);
+				// $this->db->where('id', $data['relawan']->id);
+				// $status = $this->db->update('user');
+				
+
+>>>>>>> Stashed changes
                 $this->session->set_flashdata('message', array('type' => 'success', 'message' => ['Sukses Menambah Data Donasi']));
 				return redirect(base_url('DonaturController/detail_donasi/'.$id_donasi));	
             } catch(Exception $e){
