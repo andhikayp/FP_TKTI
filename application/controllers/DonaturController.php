@@ -83,6 +83,7 @@ class DonaturController extends CI_Controller {
 				'latitude' => $data['mitra']->latitude,
 				'mitra_id' => $data['menu']->id_mitra,
 				'relawan_id' => '6',
+				'menu_id' => $this->input->post('id_menu'),
 				'bukti' => $_FILES["bukti"]["name"],
                 
             ];
@@ -113,8 +114,17 @@ class DonaturController extends CI_Controller {
 						'flag_kirim' => '0',
 					];
 					$this->db->insert('penerima_donasi', $insert_data);
+					
+					// update jumlah makanan
+					$update_jumlah_makanan = $data->jmlh_terima_makanan + 1;
+					$this->db->set('jmlh_terima_makanan', $update_jumlah_makanan);
+					$this->db->where('id', $data->id);
+					$status = $this->db->update('user');
+
 					if ($jumlah_makanan == -100) break;
 				}
+				
+
                 $this->session->set_flashdata('message', array('type' => 'success', 'message' => ['Sukses Menambah Data Donasi']));
 				return redirect(base_url('DonaturController/detail_donasi/'.$id_donasi));	
             } catch(Exception $e){

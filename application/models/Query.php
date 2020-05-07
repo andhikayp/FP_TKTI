@@ -53,7 +53,7 @@ class Query extends CI_Model {
 	}
 
 	public function getPenerima(){
-		$sql = "SELECT * FROM user WHERE role = 'Penerima' AND is_verif=1 ORDER BY jmlh_terima_makanan DESC;" ; 
+		$sql = "SELECT * FROM user WHERE role = 'Penerima' AND is_verif=1 ORDER BY jmlh_terima_makanan ASC;" ; 
         return $this->db->query($sql)->result();
 	}
 
@@ -64,6 +64,9 @@ class Query extends CI_Model {
 	public function getIDDonasi($tanggal){
 		$sql = "SELECT * FROM donasi WHERE tanggal_donasi = ?;" ; 
             return $this->db->query($sql, array($tanggal))->first_row();
+	}
+	public function getTambahJumlahTerima($id_donasi){
+
 	}
 }
 

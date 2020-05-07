@@ -142,7 +142,7 @@
                             <b>Menu Makanan</b>
                         </div>
                         <div class="col-md-7">
-                            <!-- {{ $menu->nama_menu }} -->
+                            {{ $menu->nama_menu }}
                         </div>
                     </div>
                 </div>
@@ -166,7 +166,7 @@
                             <b>Bukti Transfer</b>
                         </div>
                         <div class="col-md-7">
-                         <img src="{{ base_url('img/folder_bukti/'.$donasi->bukti) }}">
+                         <img style="max-width:100px;" src="{{ base_url('img/folder_bukti/'.$donasi->bukti) }}">
                         </div>
                     </div>
                 </div>
@@ -256,9 +256,9 @@
                         <tr>
                             <td>{{ $no++ }}</td>
                             <td class="text-center" style="min-width: 150px">{{ $data->nama }}</td>
-                            <td class="text-center">{{ $data->no_telp }}</td>
+                            <td class="text-center">{{ $data->telp }}</td>
                             <td class="text-center">{{ $data->alamat }}</td>
-                            <td class="text-center">{{ $data->jmlh_terima_makanan }}</td>
+                            <td class="text-center">{{ $data->jumlah_makanan }}</td>
                             <!-- <td class="text-center">
                                 @if($data->status == 0)
                                     Pending
@@ -270,7 +270,7 @@
                             </td> -->
                             <td class="text-center">
                                 <span>
-                                    <a href="{{ base_url('DonaturController/detail_penerima/'.$data->id) }}" class="btn btn-sm btn-primary mr-2"><i class="fa fa-refresh mr-2"></i>Detail</a>
+                                    <a href="{{ base_url('DonaturController/detail_penerima/'.$data->penerima_id) }}" class="btn btn-sm btn-primary mr-2"><i class="fa fa-refresh mr-2"></i>Detail</a>
                                 </span>
                             </td>
                         </tr>
