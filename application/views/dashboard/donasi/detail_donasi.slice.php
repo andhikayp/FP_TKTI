@@ -26,7 +26,7 @@
 
 <nav class="breadcrumb bg-white push">
     <a class="breadcrumb-item" href="{{ base_url('/') }}">Dashboard</a>
-    <a class="breadcrumb-item" href="">Peserta Luar Kota dan Tahun Lalu</a>
+    <a class="breadcrumb-item" href="">Detail Donasi</a>
     
     <span class="breadcrumb-item active">lol</span>
 </nav>
@@ -131,7 +131,7 @@
                             <b>Mitra</b>
                         </div>
                         <div class="col-md-7">
-                            wkwk
+                         {{ $mitra->nama }}
                         </div>
                     </div>
                 </div>
@@ -142,7 +142,7 @@
                             <b>Menu Makanan</b>
                         </div>
                         <div class="col-md-7">
-                            wkwk
+                            <!-- {{ $menu->nama_menu }} -->
                         </div>
                     </div>
                 </div>
@@ -155,7 +155,7 @@
                             <b>Harga</b>
                         </div>
                         <div class="col-md-7">
-                            wkwk
+                        {{ $donasi->harga }}
                         </div>
                     </div>
                 </div>
@@ -166,7 +166,7 @@
                             <b>Bukti Transfer</b>
                         </div>
                         <div class="col-md-7">
-                            wkwk
+                         <img src="{{ base_url('img/folder_bukti/'.$donasi->bukti) }}">
                         </div>
                     </div>
                 </div>
@@ -179,7 +179,7 @@
                             <b>Status</b>
                         </div>
                         <div class="col-md-7">
-                            wkwk
+                        {{ $donasi->status_donasi }}
                         </div>
                     </div>
                 </div>
@@ -195,7 +195,7 @@
                             <b>Nama Relawan</b>
                         </div>
                         <div class="col-md-7">
-                            wkw
+                        {{ $relawan->nama }}
                         </div>
                     </div>
                 </div>
@@ -206,7 +206,7 @@
                             <b>Alamat</b>
                         </div>
                         <div class="col-md-7">
-                            wkw
+                        {{ $relawan->alamat }}
                         </div>
                     </div>
                 </div>
@@ -219,7 +219,7 @@
                             <b>Telepon</b>
                         </div>
                         <div class="col-md-7">
-                            
+                        {{ $relawan->no_telp }}
                         </div>
                     </div>
                 </div>
@@ -243,10 +243,10 @@
                         <tr>
                             <th class="text-center">No</th>
                             <th class="text-center">Nama</th>
+                            <th class="text-center">No Telp</th>
                             <th class="text-center">Alamat</th>
-                            <th class="text-center">Telepon</th>
-                            <th class="text-center">Jumlah Makanan</th>
-                            <th class="text-center">Status</th>
+                            <th class="text-center">Jumlah Menerima Makanan</th>
+                            <!-- <th class="text-center">Status</th> -->
                             <th class="text-center">Aksi</th>
                         </tr>
                     </thead>
@@ -256,15 +256,23 @@
                         <tr>
                             <td>{{ $no++ }}</td>
                             <td class="text-center" style="min-width: 150px">{{ $data->nama }}</td>
-                            <td class="" style="min-width: 200px">{{ $data->alamat }}</td>
                             <td class="text-center">{{ $data->no_telp }}</td>
+                            <td class="text-center">{{ $data->alamat }}</td>
+                            <td class="text-center">{{ $data->jmlh_terima_makanan }}</td>
+                            <!-- <td class="text-center">
+                                @if($data->status == 0)
+                                    Pending
+                                @elseif($data->status == 1)
+                                    Mengirim
+                                @elseif($data->status == 2)
+                                    Diterima
+                                @endif
+                            </td> -->
                             <td class="text-center">
-                                
+                                <span>
+                                    <a href="{{ base_url('DonaturController/detail_penerima/'.$data->id) }}" class="btn btn-sm btn-primary mr-2"><i class="fa fa-refresh mr-2"></i>Detail</a>
+                                </span>
                             </td>
-                            <td class="text-center" style="min-width: 260px">
-                                
-                            </td>
-                            <td></td>
                         </tr>
                         @endforeach
                     </tbody>
