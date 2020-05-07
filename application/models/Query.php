@@ -58,13 +58,15 @@ class Query extends CI_Model {
 	}
 
 	public function getPenerimaByID($id){
-		$sql = "SELECT * FROM user WHERE id = ?;" ; 
-            return $this->db->query($sql, array($id))->first_row();
+		$sql = "SELECT u.*, p.bukti, p.jumlah_makanan, p.penerima_id, p.id_donasi FROM penerima_donasi p JOIN user u on p.penerima_id = u.id WHERE p.id = ?;" ; 
+        return $this->db->query($sql, array($id))->first_row();
 	}
+
 	public function getIDDonasi($tanggal){
 		$sql = "SELECT * FROM donasi WHERE tanggal_donasi = ?;" ; 
             return $this->db->query($sql, array($tanggal))->first_row();
 	}
+	
 	public function getTambahJumlahTerima($id_donasi){
 
 	}

@@ -230,7 +230,7 @@ class DonaturController extends CI_Controller {
 		$data['relawan'] = $this->query->find('user', $data['donasi']->relawan_id);
 		$data['menu'] = $this->query->find('menu', $data['donasi']->menu_id);
 		$data['penerima'] = $this->users->getPenerima($id);
-		// var_dump($data); return;
+		$data['progres'] = ($this->users->getPenerimaDone($id)->done / count($data['penerima'])) * 100;
 		$this->slice->view('dashboard.donasi.detail_donasi', $data);
 	}
 }

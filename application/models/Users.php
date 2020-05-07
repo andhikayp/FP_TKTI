@@ -106,6 +106,12 @@
             return $this->db->query($sql, array($id))->result();
         }
 
+        public function getPenerimaDone($id)
+        {
+            $sql = "SELECT COUNT(*) as done FROM penerima_donasi WHERE id_donasi = ? AND bukti IS NOT NULL" ; 
+            return $this->db->query($sql, array($id))->first_row();
+        }
+
         public function getAllPenerima()
         {
             

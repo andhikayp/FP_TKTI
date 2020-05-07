@@ -104,7 +104,7 @@
                             <b>Jumlah Makanan Diterima</b>
                         </div>
                         <div class="col-md-7">
-                        {{ $penerima->jmlh_terima_makanan }}
+                        {{ $penerima->jumlah_makanan }}
                         </div>
                     </div>
                 </div>
@@ -137,6 +137,19 @@
                 </div>
             </div>
             <hr>
+            @if($penerima->bukti)
+            <h3>Bukti Penerimaan Makanan</h3>
+            <div class="row mb-10">
+                <div class="col-md-4">
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                           <img src="{{ base_url('img/user/'.$penerima->bukti) }}">
+                           <div><b>Foto Bukti</b></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endif
     </div>
 </div>
 @endsection
