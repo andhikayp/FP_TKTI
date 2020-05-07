@@ -276,7 +276,7 @@
                                 @endif
                             </td>
                             <td class="text-center">
-                                @if($data->flag_kirim != 1)
+                                @if($data->flag_kirim != 1 & $this->session->user_login['role'] == "relawan")
                                 <span>
                                     <a href="{{ base_url('DonaturController/flag_kirim/'.$data->id) }}" class="btn btn-sm btn-danger mr-2 mb-2"><i class="fa fa-refresh mr-2"></i>Kirim</a>
                                 </span>

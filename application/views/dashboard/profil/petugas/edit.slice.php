@@ -116,6 +116,9 @@
                     </div>
                 </div>
             </div>
+            @else
+            <input type="file" class="form-control" id="file[]" name="file[]" hidden>
+            <input type="file" class="form-control" id="file[]" name="file[]" hidden>
             @endif
             <div>
                 <div class="col-12">

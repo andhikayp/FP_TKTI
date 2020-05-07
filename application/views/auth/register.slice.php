@@ -13,12 +13,6 @@
         </div>
         <div class="hero-static col-md-6 col-xl-4 d-flex align-items-center bg-white invisible" data-toggle="appear" data-class="animated fadeInRight">
             <div class="content content-full">
-                <!-- <div class="px-30 py-10 text-center">
-                    <img src="{{ base_url('/img/logo_kasir.png') }}" alt="" width="70%" height="100%"><br><br>
-                    <a class="link-effect font-w700" href="index.html">
-                        <span class="font-size-xl text-primary-dark">Sistem Informasi Kasir</span> <span class="font-size-xl"><br>Andhika Yoga Perdana</span>
-                    </a>
-                </div> -->
                 <div class="px-30 py-10">
                     <h1 class="h3 font-w700 mt-30 mb-10">Selamat Datang</h1>
                     <h2 class="h5 font-w400 text-muted mb-0">Buat Akun</h2>
@@ -90,10 +84,10 @@
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-sm btn-hero btn-alt-primary">
-                            <i class="si si-login mr-10"></i> Simpan
+                            <i class="fa fa-bullhorn mr-10"></i> Simpan
                         </button>
-                        <a href="{{ base_url('/') }}" class="btn btn-sm btn-hero btn-alt-success">
-                           <i class="si si-login mr-10"></i> Kembali
+                        <a href="{{ base_url('/auth/index') }}" class="btn btn-sm btn-hero btn-alt-success">
+                           <i class="fa fa-chevron-circle-left mr-10"></i> Kembali
                         </a>
                     </div>
                 </form>
