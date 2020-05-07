@@ -66,9 +66,15 @@ class Query extends CI_Model {
 		$sql = "SELECT * FROM donasi WHERE tanggal_donasi = ?;" ; 
             return $this->db->query($sql, array($tanggal))->first_row();
 	}
+<<<<<<< Updated upstream
 	
 	public function getTambahJumlahTerima($id_donasi){
 
+=======
+	public function getRiwayatPenerima($id){
+		$sql = "SELECT penerima_donasi.bukti ,penerima_donasi.id, donasi.tanggal_donasi , user.nama, penerima_donasi.jumlah_makanan, donasi.menu_id, donasi.mitra_id, donasi.relawan_id from penerima_donasi JOIN donasi ON penerima_donasi.id_donasi = donasi.id AND penerima_donasi.penerima_id = ? JOIN user ON user.id = donasi.donatur_id;" ; 
+            return $this->db->query($sql, array($id))->result();
+>>>>>>> Stashed changes
 	}
 }
 
