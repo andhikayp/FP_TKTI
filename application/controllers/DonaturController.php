@@ -94,23 +94,27 @@ class DonaturController extends CI_Controller {
 				$jumlah_makanan = $data['donasi']->jumlah_makanan;
 				$id_donasi = $data['donasi']->id;
 				foreach ($data['penerima'] as $data) {
-					// if ($jumlah_makanan) {
-						
-					// }
+					if ($jumlah_makanan - $data->jmlh_anggota_keluarga > 0) {
+						$jumlah_makanan -= $data->jmlh_anggota_keluarga;
+					}
+					else {
+						$data->jmlh_anggota_keluarga = $jumlah_makanan;
+						$jumlah_makanan = -100;
+					}
 					$insert_data = [
 						'penerima_id' => $data->id,
 						'nama' => $data->nama,
 						'alamat' => $data->alamat,
 						'telp' =>  $data->no_telp,
-						'jumlah_makanan' => $data->jmlh_terima_makanan,
+						'jumlah_makanan' => $data->jmlh_anggota_keluarga,
 						'longitude' => $data->longitude,
 						'latitude' => $data->latitude,
 						'id_donasi' => $id_donasi,
 						'flag_kirim' => '0',
 					];
 					$this->db->insert('penerima_donasi', $insert_data);
+					if ($jumlah_makanan == -100) break;
 				}
-
                 $this->session->set_flashdata('message', array('type' => 'success', 'message' => ['Sukses Menambah Data Donasi']));
 				return redirect(base_url('DonaturController/detail_donasi/'.$id_donasi));	
             } catch(Exception $e){
