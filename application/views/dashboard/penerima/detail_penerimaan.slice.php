@@ -195,6 +195,14 @@
                     </div>
                 </div>
             </div>
+            <hr>
+            @if($penerima_donasi->bukti != null)
+            <h3 class="text-center">Bukti Diterima</h3>
+            <div class="row mb-10">
+                <img class="rounded mx-auto d-block img-fluid text-center" style="max-width:150px;" src="{{ base_url('img/folder_bukti/'.$penerima_donasi->bukti) }}">
+            </div>
+            <hr>
+            @endif
             <div class="row mb-10">
                 <div class="col-md-12">
                     <div class="form-group row">
@@ -209,20 +217,7 @@
                     </div>
                 </div>
             </div>
-            <hr>
-            @if($penerima_donasi->bukti != null)
-            <h3>Bukti Diterima</h3>
-            <div class="row mb-10">
-                <div class="col-md-6">
-                    <div class="form-group row">
-                        <div class="col-md-7">
-                         <img style="max-width:150px;" src="{{ base_url('img/folder_bukti/'.$penerima_donasi->bukti) }}">
-                        </div>
-                    </div>
-                </div>  
-            </div>
             
-            @endif
         </div>
     </div>
 </div>
