@@ -72,7 +72,7 @@ class Query extends CI_Model {
             return $this->db->query($sql, array($tanggal))->first_row();
 	}
 	public function getRiwayatPenerima($id){
-		$sql = "SELECT penerima_donasi.bukti ,penerima_donasi.id, donasi.tanggal_donasi , user.nama, penerima_donasi.jumlah_makanan, donasi.menu_id, donasi.mitra_id, donasi.relawan_id from penerima_donasi JOIN donasi ON penerima_donasi.id_donasi = donasi.id AND penerima_donasi.penerima_id = ? JOIN user ON user.id = donasi.donatur_id;" ; 
+		$sql = "SELECT penerima_donasi.* , donasi.tanggal_donasi , user.nama, donasi.menu_id, donasi.mitra_id, donasi.relawan_id from penerima_donasi JOIN donasi ON penerima_donasi.id_donasi = donasi.id AND penerima_donasi.penerima_id = ? JOIN user ON user.id = donasi.donatur_id WHERE donasi.is_verif = 1 and donasi.status_donasi = 3;" ; 
             return $this->db->query($sql, array($id))->result();
 	}
 

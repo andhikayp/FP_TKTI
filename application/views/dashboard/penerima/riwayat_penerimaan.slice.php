@@ -37,7 +37,7 @@
                         <th class="text-center">Tanggal Dikirim</th>
                         <th class="text-center">Donatur</th>
                         <th class="text-center">Jumlah Makanan</th>
-                        <!-- <th class="text-center">Status</th> -->
+                        <th class="text-center">Status</th>
                         <!-- <th class="text-center">Total Harga</th> -->
                         <th class="text-center">Aksi</th>
                     </tr>
@@ -51,9 +51,15 @@
                         <td class="text-center">{{ $data->tanggal_donasi }}</td>
                         <td class="text-center">{{ $data->nama }}</td>
                         <td class="text-center">{{ $data->jumlah_makanan }}</td>
-
-                        
-                        
+                        <td class="text-center">
+                            @if($data->bukti)
+                                Diterima
+                            @elseif($data->flag_kirim == 1)
+                                Dalam Perjalanan
+                            @else
+                                Belum terkirim
+                            @endif
+                        </td>
                         <td class="text-center" style="min-width: 260px">
                             <span>
                                 <a href="{{ base_url('PenerimaController/detail/'.$data->id) }}" class="btn btn-sm btn-info mr-2"><i class="fa fa-exclamation-circle mr-2"></i>Detail</a>

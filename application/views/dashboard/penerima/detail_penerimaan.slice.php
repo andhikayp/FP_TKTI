@@ -63,17 +63,17 @@
             </div>
             <div class="row mb-10">
                 <div class="col-md-6">
-                        <div class="form-group row">
-                            <div class="col-md-5">
-                                <b style="float: right"></style>:</b>
-                                <b>No Telepon</b>
-                            </div>
-                            <div class="col-md-7">
-                                {{ $donatur->no_telp }}
-                            </div>
+                    <div class="form-group row">
+                        <div class="col-md-5">
+                            <b style="float: right"></style>:</b>
+                            <b>No Telepon</b>
+                        </div>
+                        <div class="col-md-7">
+                            {{ $donatur->no_telp }}
                         </div>
                     </div>
-                <div class="col-md-6">
+                </div>
+                <!-- <div class="col-md-6">
                     <div class="form-group row">
                         <div class="col-md-5">
                             <b style="float: right"></style>:</b>
@@ -91,7 +91,7 @@
                         @endif
                         </div>
                     </div>
-                </div>
+                </div> -->
             </div>
             <hr>
 
@@ -187,7 +187,7 @@
                     <div class="form-group row">
                         <div class="col-md-5">
                             <b style="float: right"></style>:</b>
-                            <b>Pesan Donatur</b>
+                            <b>Pesan Dari Donatur</b>
                         </div>
                         <div class="col-md-7">
                         {{ $donasi->deskripsi }}
@@ -195,8 +195,22 @@
                     </div>
                 </div>
             </div>
+            <div class="row mb-10">
+                <div class="col-md-12">
+                    <div class="form-group row">
+                        @if($penerima_donasi->bukti)
+                            <button class="btn-block btn-success btn-lg col-md-12">Diterima</button>
+                        @elseif($penerima_donasi->flag_kirim == 1)
+                        <button class="btn-block btn-warning btn-lg col-md-12">Dalam Perjalanan</button>
+                        @else
+                        <button class="btn-block btn-danger btn-lg col-md-12">Belum terkirim</button>
+                        @endif
+                        </button>
+                    </div>
+                </div>
+            </div>
             <hr>
-            @if($penerima_donasi->bukti != 'null')
+            @if($penerima_donasi->bukti != null)
             <h3>Bukti Diterima</h3>
             <div class="row mb-10">
                 <div class="col-md-6">
@@ -235,7 +249,7 @@
         i++;
     <?php } ?>
 </script>
-<script>
+<!-- <script>
     function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 3,
@@ -252,5 +266,5 @@
     }
 </script>
 <script src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTnAg_gwZ-GQxB6xC0h2cY4TDFYU28ov8&callback=initMap"></script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTnAg_gwZ-GQxB6xC0h2cY4TDFYU28ov8&callback=initMap"></script> -->
 @endsection

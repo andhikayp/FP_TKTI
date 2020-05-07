@@ -129,6 +129,34 @@
                     </div>
                 </div>
             </div>
+            @php
+                $longlat = (string)$donasi->latitude.','.(string)$donasi->longitude;
+            @endphp
+            <div class="row mb-10">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-5">
+                            <b style="float: right"></style>:</b>
+                            <b>Alamat</b>
+                        </div>
+                        <div class="col-md-7">
+                        {{ $donasi->alamat }}
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-5">
+                            <b style="float: right"></style>:</b>
+                            <b>Longitude | Latitude</b>
+                        </div>
+                        <div class="col-md-7">
+                            {{ $donasi->longitude }} | {{ $donasi->latitude }} 
+                            <span class="" style="float: right;"><a href="https://www.google.com/maps/place/{{ $longlat }}" target="_blank">[Periksa Alamat]</a></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="row mb-10">
                 <div class="col-md-6">
                     <div class="form-group row">
@@ -145,6 +173,8 @@
                             Pesanan Ditolak
                         @elseif($donasi->status_donasi == 3)
                             Pesanan Sedang Diantar
+                        @else
+                            Pengiriman Selesai Dilakukan
                         @endif
                         </div>
                     </div>
@@ -239,11 +269,18 @@
                             <td class="text-center">
                                 @if($data->bukti)
                                     Diterima
+                                @elseif($data->flag_kirim == 1)
+                                    Dalam Perjalanan
                                 @else
                                     Belum terkirim
                                 @endif
                             </td>
                             <td class="text-center">
+                                @if($data->flag_kirim != 1)
+                                <span>
+                                    <a href="{{ base_url('DonaturController/flag_kirim/'.$data->id) }}" class="btn btn-sm btn-danger mr-2 mb-2"><i class="fa fa-refresh mr-2"></i>Kirim</a>
+                                </span>
+                                @endif
                                 <span>
                                     <a href="{{ base_url('DonaturController/detail_penerima/'.$data->id) }}" class="btn btn-sm btn-primary mr-2"><i class="fa fa-refresh mr-2"></i>Detail</a>
                                 </span>

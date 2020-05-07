@@ -254,6 +254,16 @@ class DonaturController extends CI_Controller {
 		$data['kirim'] = $this->query->kirim($id);
 		$this->slice->view('dashboard.donasi.kirim', $data);
 	}
+
+	public function flag_kirim($id)
+	{
+		$this->db->set('flag_kirim', 1);
+        $this->db->where('id', $id);
+		$status = $this->db->update('penerima_donasi');
+		$this->session->set_flashdata('message', array('type' => 'success', 'message' => ['Update Status Pengiriman Berhasil']));
+		return redirect($_SERVER['HTTP_REFERER']);
+		// return redirect(base_url('DonaturController/detail_donasi'));	
+	}
 }
 
 /* End of file DonaturController.php */
