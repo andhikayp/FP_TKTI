@@ -107,6 +107,24 @@
                     </div>
                 </div>
             </div>
+            @php
+                $longlat = (string)$penerima->latitude.','.(string)$penerima->longitude;
+            @endphp
+            <div class="row mb-10">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-5">
+                            <b style="float: right"></style>:</b>
+                            <b>Longitude | Latitude</b>
+                        </div>
+                        <div class="col-md-7">
+                            {{ $penerima->longitude }} | {{ $penerima->latitude }}
+                            <span class="" style="float: right;"><a href="https://www.google.com/maps/place/{{ $longlat }}" target="_blank">[Periksa Alamat]</a></span>
+                                
+                        </div>
+                    </div>
+                </div>
+            </div>
             <h3>File Pendukung Penerima Bantuan</h3>
             <div class="row mb-10">
                 <div class="col-md-4">
@@ -136,13 +154,12 @@
             </div>
             <hr>
             @if($penerima->bukti)
-            <h3>Bukti Penerimaan Makanan</h3>
+            <h3 class="text-center">Bukti Penerimaan Makanan</h3>
             <div class="row mb-10">
-                <div class="col-md-4">
+                <div class="col-md-12">
                     <div class="form-group row">
                         <div class="col-md-12">
-                           <img src="{{ base_url('img/user/'.$penerima->bukti) }}">
-                           <div><b>Foto Bukti</b></div>
+                           <img class="img-fluid rounded mx-auto d-block" src="{{ base_url('img/user/'.$penerima->bukti) }}">
                         </div>
                     </div>
                 </div>
@@ -160,35 +177,5 @@
             "ordering": false,
         });
     });
-
-    var locations = []
-    var labels = []
-    i = 1;
-    <?php foreach ($penerima as $data) { ?>
-        locations.push({
-            lat: parseFloat("<?php echo $data->latitude; ?>"),
-            lng: parseFloat("<?php echo $data->longitude; ?>"),
-        });
-        labels.push(i.toString());
-        i++;
-    <?php } ?>
 </script>
-<script>
-    function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 3,
-          center: {lat: -7.4469817, lng: 112.6959943}
-        });
-        var markers = locations.map(function(location, i) {
-            return new google.maps.Marker({
-                position: location,
-                label: labels[i]
-            });
-        });
-        var markerCluster = new MarkerClusterer(map, markers,
-            {imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m'});
-    }
-</script>
-<script src="https://unpkg.com/@google/markerclustererplus@4.0.1/dist/markerclustererplus.min.js"></script>
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTnAg_gwZ-GQxB6xC0h2cY4TDFYU28ov8&callback=initMap"></script>
 @endsection
