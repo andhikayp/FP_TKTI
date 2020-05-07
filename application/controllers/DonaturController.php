@@ -90,7 +90,7 @@ class DonaturController extends CI_Controller {
 				$this->db->insert('donasi', $insert_data);
 				$data['donasi'] =  $this->query->getIDDonasi($dt->format('Y-m-d H:i:s'));
 				$data['penerima']= $this->query->getPenerima();
-				
+			
 				$insert_data = [
 					'penerima_id' => $data['penerima']->id,
 					'nama' => $data['penerima']->nama,
