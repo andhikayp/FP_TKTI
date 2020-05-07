@@ -33,7 +33,7 @@
         <h3 class="block-title">Manajemen Donasi</h3>
     </div>
     <div class="block-content">
-        <a href="{{ base_url('DonaturController/create') }}" class="btn btn-sm bg-earth text-white mb-3"><i class="fa fa-plus mr-2"></i>Tambah Donasi</a>
+        <!-- <a href="{{ base_url('DonaturController/create') }}" class="btn btn-sm bg-earth text-white mb-3"><i class="fa fa-plus mr-2"></i>Tambah Donasi</a> -->
         <div class="table-responsive">
             <table id="table-ruang" class="stripe table table-stripped">
                 <thead>

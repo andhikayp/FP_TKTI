@@ -164,22 +164,22 @@
                         <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Manajemen Donasi</span>
                     </a>
                 </li>
-                <li>
+                <!-- <li>
                     <a href="{{ base_url('BarangController/index') }}" class="
                         @if($this->router->fetch_class() == 'BarangController')
                             active
                         @endif">
                         <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Pesan Makanan</span>
                     </a>
-                </li>
-                <li>
+                </li> -->
+                <!-- <li>
                     <a href="{{ base_url('BarangController/index') }}" class="
                         @if($this->router->fetch_class() == 'BarangController')
                             active
                         @endif">
                         <i class="fa fa-list-alt"></i><span class="sidebar-mini-hide">Bayar Relawan</span>
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a href="{{ base_url('MenuController/daftarMitra') }}" class="
                         @if($this->router->fetch_class() == 'MenuController')

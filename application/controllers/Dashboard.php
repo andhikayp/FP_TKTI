@@ -24,7 +24,7 @@ class Dashboard extends MY_Protectedcontroller
 		$data['donatur'] = $this->users->countUser('Donatur');
 		$data['mitra'] = $this->users->countUser('Mitra');
 		if ($this->session->user_login['role'] == "Admin") {
-			$data['sebaran'] = $this->users->getPenerima(2);
+			$data['sebaran'] = $this->users->getPenerimaAll();
 		}
 		$this->slice->view('dashboard/index', $data);
 	}

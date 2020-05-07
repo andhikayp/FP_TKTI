@@ -26,9 +26,7 @@
 
 <nav class="breadcrumb bg-white push">
     <a class="breadcrumb-item" href="{{ base_url('/') }}">Dashboard</a>
-    <a class="breadcrumb-item" href="">Detail Penerima Bantuan</a>
-    
-    <span class="breadcrumb-item active">lol</span>
+    <span class="breadcrumb-item active">Detail Penerima Bantuan</span>
 </nav>
 <div class="block block-themed">
     <div class="block-header bg-gd-lake">

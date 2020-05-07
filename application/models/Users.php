@@ -112,9 +112,10 @@
             return $this->db->query($sql, array($id))->first_row();
         }
 
-        public function getAllPenerima()
+        public function getPenerimaAll()
         {
-            
+            $sql = "SELECT * FROM penerima_donasi" ; 
+            return $this->db->query($sql)->result();
         }
     }
 ?>   
