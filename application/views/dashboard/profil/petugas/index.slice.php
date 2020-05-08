@@ -32,7 +32,7 @@
     <div class="block-header bg-gd-lake">
         <h3 class="block-title">Profil</h3>
         <div class="block-options">
-            <a href="{{ base_url('PetugasController/editProfil') }}"><button type="button" class="btn-block-option btn-sm bg-danger">
+            <a href="{{ base_url('PetugasController/editProfil/').$petugas->id }}"><button type="button" class="btn-block-option btn-sm bg-danger">
                 <i class="si si-pencil"></i> Edit
             </button></a>
         </div>

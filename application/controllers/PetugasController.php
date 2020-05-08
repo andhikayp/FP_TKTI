@@ -28,13 +28,13 @@ class PetugasController extends MY_Protectedcontroller
         }
 	}
 
-	public function indexProfil(){
-		$data['petugas'] = $this->users->getUser($this->session->user_login['id']);
+	public function indexProfil($id){
+		$data['petugas'] = $this->users->getUser($id);
 		$this->slice->view('dashboard.profil.petugas.index', $data);
 	}
 
-	public function editProfil(){
-		$data['petugas'] = $this->users->getUser($this->session->user_login['id']);
+	public function editProfil($id){
+		$data['petugas'] = $this->users->getUser($id);
 		if ($_SERVER['REQUEST_METHOD'] == "GET"){
 		// var_dump($data); return;
 			$this->slice->view('dashboard.profil.petugas.edit', $data);
