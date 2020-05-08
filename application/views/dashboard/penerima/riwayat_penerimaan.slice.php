@@ -66,7 +66,7 @@
                             <span>
                                 <a href="{{ base_url('PenerimaController/detail/'.$data->id) }}" class="btn btn-sm btn-info mr-2"><i class="fa fa-exclamation-circle mr-2"></i>Detail</a>
                             </span>
-                            @if($data->flag_kirim == 2)
+                            @if($data->bukti == null)
                                 <span>
                                     <a href="{{ base_url('PenerimaController/upload_bukti/'.$data->id) }}" class="btn btn-sm btn-success mr-2"><i class="fa fa-exclamation-circle mr-2"></i>Upload Bukti</a>
                                 </span>
