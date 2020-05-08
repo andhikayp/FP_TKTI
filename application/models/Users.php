@@ -66,10 +66,10 @@
             if($files['file']['name'][0] == NULL or $files['file']['name'][0] == '') $foto_ktp = $baris->foto_ktp;
             else $foto_ktp = $files['file']['name'][0];
 
-            if($files['file']['name'][1] == NULL or $files['file']['name'][0] == '') $foto_kk = $baris->foto_kk;
+            if($files['file']['name'][1] == NULL or $files['file']['name'][1] == '') $foto_kk = $baris->foto_kk;
             else $foto_kk = $files['file']['name'][1];
 
-            if($files['file']['name'][2] == NULL or $files['file']['name'][0] == '') $foto_depan_rumah = $baris->foto_depan_rumah;
+            if($files['file']['name'][2] == NULL or $files['file']['name'][2] == '') $foto_depan_rumah = $baris->foto_depan_rumah;
             else $foto_depan_rumah = $files['file']['name'][2];
 		
             $update_data = [
