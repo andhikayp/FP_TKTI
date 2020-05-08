@@ -52,7 +52,7 @@
                     @foreach($kirim as $data)
                     <tr>
                         <td>{{ $no++ }}</td>
-                        <td class="text-center" style="min-width: 200px">{{ $data->nama_mitra }}</td>
+                        <td class="text-center" style="min-width: 200px">{{ $data->nama }}</td>
                         <td class="text-center">{{ $data->jumlah_makanan }}</td>
                         <td class="text-center">
                             {{ 100/105*$data->harga }}

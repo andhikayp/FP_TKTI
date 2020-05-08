@@ -11,6 +11,15 @@ class Query extends CI_Model {
 		return $query->result();
 	}
 
+	public function allDonasiMitra($db)
+	{
+		$this->db->select('*');
+		$this->db->from($db);
+		$this->db->where('is_verif', 1);
+		$query = $this->db->get();
+		return $query->result();
+	}
+
 	public function find($db, $id)
 	{
 		$this->db->select('*');
@@ -78,7 +87,7 @@ class Query extends CI_Model {
 
 	public function kirim($id)
 	{
-		$sql = "SELECT * FROM donasi WHERE relawan_id = ? AND is_verif = 1 AND (status_donasi = 3 or status_donasi = 4);"; 
+		$sql = "SELECT donasi.*, user.* FROM donasi JOIN user ON donasi.mitra_id = user.id WHERE donasi.relawan_id = ? AND donasi.is_verif = 1 AND (donasi.status_donasi = 3 or donasi.status_donasi = 4);"; 
 		return $this->db->query($sql, array($id))->result();
 	}
 
