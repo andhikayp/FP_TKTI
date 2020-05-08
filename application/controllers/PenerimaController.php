@@ -71,7 +71,11 @@ class PenerimaController extends CI_Controller {
 					$this->db->set('status_donasi', 4);
 					$this->db->where('id', $data['penerima']->id_donasi);
 					$this->db->update('donasi');
+					
 				}
+				$this->db->set('flag_kirim', 3);
+				$this->db->where('id', $data['penerima']->id);
+				$this->db->update('penerima_donasi');
 
                 $this->session->set_flashdata('message', array('type' => 'success', 'message' => ['Sukses Upload Bukti Makanan Diterima']));
 				return redirect(base_url('PenerimaController/riwayat_penerimaan'));	

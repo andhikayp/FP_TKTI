@@ -271,14 +271,21 @@
                                     Diterima
                                 @elseif($data->flag_kirim == 1)
                                     Dalam Perjalanan
+                                @elseif($data->flag_kirim == 2)
+                                    Telah Terkirim
                                 @else
                                     Belum terkirim
                                 @endif
                             </td>
                             <td class="text-center">
-                                @if($data->flag_kirim != 1 & $this->session->user_login['role'] == "relawan")
+                                @if($data->flag_kirim == 0 & $this->session->user_login['role'] == "Relawan")
                                 <span>
-                                    <a href="{{ base_url('DonaturController/flag_kirim/'.$data->id) }}" class="btn btn-sm btn-danger mr-2 mb-2"><i class="fa fa-refresh mr-2"></i>Kirim</a>
+                                    <a href="{{ base_url('DonaturController/flag_kirim/'.$data->id.'/1') }}" class="btn btn-sm btn-danger mr-2 mb-2"><i class="fa fa-send mr-2"></i>Kirim</a>
+                                </span>
+                                @endif
+                                @if($data->flag_kirim == 1 & $this->session->user_login['role'] == "Relawan")
+                                <span>
+                                    <a href="{{ base_url('DonaturController/flag_kirim/'.$data->id.'/2') }}" class="btn btn-sm btn-success mr-2 mb-2"><i class="fa fa-check mr-2"></i>Serahkan</a>
                                 </span>
                                 @endif
                                 <span>

@@ -124,6 +124,25 @@
                         </div>
                     </div>
                 </div>
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-5">
+                            <b style="float: right"></style>:</b>
+                            <b>Status</b>
+                        </div>
+                        <div class="col-md-7">
+                            @if($penerima->bukti)
+                            <span>Diterima</span>
+                            @elseif($penerima->flag_kirim == 0)
+                            <span>Belum Terkirim</span>
+                            @elseif($penerima->flag_kirim == 1)
+                            <span>Dalam Perjalanan</span>
+                            @elseif($penerima->flag_kirim == 2)
+                            <span>Telah Terkirim</span>
+                            @endif
+                        </div>
+                    </div>
+                </div>
             </div>
             <h3>File Pendukung Penerima Bantuan</h3>
             <div class="row mb-10">

@@ -195,6 +195,26 @@
                     </div>
                 </div>
             </div>
+            @if($penerima_donasi->flag_kirim == 2)
+            <div class="row mb-10">
+                <div class="col-md-6">
+                    <div class="form-group row">
+                        <div class="col-md-5">
+                            <a href="{{ base_url('PenerimaController/upload_bukti/'.$penerima_donasi->id) }}" class="btn btn-sm btn-success mr-2"><i class="fa fa-check mr-2"></i>Makanan Telah Diterima</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endif
+            <br>
+            <hr>
+            @if($penerima_donasi->bukti != null)
+            <h3 class="text-center">Bukti Diterima</h3>
+            <div class="row mb-10">
+                <img class="rounded mx-auto d-block img-fluid text-center" style="max-width:150px;" src="{{ base_url('img/folder_bukti/'.$penerima_donasi->bukti) }}">
+            </div>
+            <hr>
+            @endif
             <div class="row mb-10">
                 <div class="col-md-12">
                     <div class="form-group row">
@@ -202,27 +222,16 @@
                             <button class="btn-block btn-success btn-lg col-md-12">Diterima</button>
                         @elseif($penerima_donasi->flag_kirim == 1)
                         <button class="btn-block btn-warning btn-lg col-md-12">Dalam Perjalanan</button>
+                        @elseif($penerima_donasi->flag_kirim == 2)
+                        <button class="btn-block btn-primary btn-lg col-md-12">Telah Terkirim</button>
                         @else
-                        <button class="btn-block btn-danger btn-lg col-md-12">Belum terkirim</button>
+                        <button class="btn-block btn-danger btn-lg col-md-12">Belum Terkirim</button>
                         @endif
                         </button>
                     </div>
                 </div>
             </div>
-            <hr>
-            @if($penerima_donasi->bukti != null)
-            <h3>Bukti Diterima</h3>
-            <div class="row mb-10">
-                <div class="col-md-6">
-                    <div class="form-group row">
-                        <div class="col-md-7">
-                         <img style="max-width:150px;" src="{{ base_url('img/folder_bukti/'.$penerima_donasi->bukti) }}">
-                        </div>
-                    </div>
-                </div>  
-            </div>
             
-            @endif
         </div>
     </div>
 </div>

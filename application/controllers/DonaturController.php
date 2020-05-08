@@ -255,9 +255,9 @@ class DonaturController extends CI_Controller {
 		$this->slice->view('dashboard.donasi.kirim', $data);
 	}
 
-	public function flag_kirim($id)
+	public function flag_kirim($id, $flag)
 	{
-		$this->db->set('flag_kirim', 1);
+		$this->db->set('flag_kirim', $flag);
         $this->db->where('id', $id);
 		$status = $this->db->update('penerima_donasi');
 		$this->session->set_flashdata('message', array('type' => 'success', 'message' => ['Update Status Pengiriman Berhasil']));
