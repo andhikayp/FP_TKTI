@@ -33,6 +33,12 @@ class PetugasController extends MY_Protectedcontroller
 		$this->slice->view('dashboard.profil.petugas.index', $data);
 	}
 
+	public function adminUser($id)
+	{
+		$data['petugas'] = $this->users->getUser($id);
+		$this->slice->view('dashboard.profil.petugas.index', $data);
+	}
+
 	public function editProfil(){
 		$data['petugas'] = $this->users->getUser($this->session->user_login['id']);
 		if ($_SERVER['REQUEST_METHOD'] == "GET"){

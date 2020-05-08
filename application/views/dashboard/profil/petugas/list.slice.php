@@ -67,7 +67,7 @@
                         </td>
                         <td class="text-center" style="width: 100%;">
                             <span>
-                                <a href="{{ base_url('PetugasController/indexProfil/'.$data->id) }}" class="btn btn-sm btn-primary mr-2"><i class="fa fa-refresh mr-2"></i>Detail</a>
+                                <a href="{{ base_url('PetugasController/adminUser/'.$data->id) }}" class="btn btn-sm btn-primary mr-2"><i class="fa fa-refresh mr-2"></i>Detail</a>
                                 <button style="margin-top:2%;" value="{{ base_url('PetugasController/deleteUser/'.$data->id) }}" class="btn btn-sm btn-danger hapus-satu"><i class="fa fa-trash mr-2"></i>Hapus</button>
                                 @if($data->is_verif == 0)
                                 <a  style="margin-top:2%;" href="{{ base_url('PetugasController/verifikasi/'.$data->id) }}" class="btn btn-sm btn-success mr-2"><i class="fa fa-refresh mr-2"></i>Verifikasi</a>
