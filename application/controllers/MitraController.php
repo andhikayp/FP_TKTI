@@ -16,7 +16,7 @@ class MitraController extends CI_Controller
     
     public function pesanan_masuk()
     {
-        $data['donasi'] = $this->query->allDonasiMitra('donasi');
+        $data['donasi'] = $this->query->allDonasiMitra($this->username = $this->session->user_login['id']);
         $data['menu'] = $this->query->all('menu');
         $this->slice->view('dashboard.mitra.pesanan_masuk', $data);
     }

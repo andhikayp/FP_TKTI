@@ -179,6 +179,7 @@
                         </div>
                     </div>
                 </div>
+                @if($this->session->user_login['role']=="Admin" || $this->session->user_login['role']=="Donatur")
                 <div class="col-md-6">
                     <div class="form-group row">
                         <div class="col-md-5">
@@ -190,6 +191,7 @@
                         </div>
                     </div>
                 </div>
+                @endif
             </div>
             <hr>
 

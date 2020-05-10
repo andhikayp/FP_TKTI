@@ -69,9 +69,9 @@
                             <div class="form-group row">
                                 <div class="col-md-5">
                                     <b style="float: right"></style>:</b>
-                                    <b>No Rekening</b>
+                                    <b>No Telepon</b>
                                 </div>
-                                <div class="col-md-7">{{ $mitra->alamat }}</div>
+                                <div class="col-md-7">{{ $mitra->no_telp }}</div>
                             </div>
                         </div>
                     </div>

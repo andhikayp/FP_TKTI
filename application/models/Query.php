@@ -11,11 +11,12 @@ class Query extends CI_Model {
 		return $query->result();
 	}
 
-	public function allDonasiMitra($db)
+	public function allDonasiMitra($id)
 	{
 		$this->db->select('*');
-		$this->db->from($db);
+		$this->db->from('donasi');
 		$this->db->where('is_verif', 1);
+		$this->db->where('mitra_id', $id);
 		$query = $this->db->get();
 		return $query->result();
 	}
@@ -53,7 +54,7 @@ class Query extends CI_Model {
 	}
 
 	public function getDataMitra($id){
-		$sql = "SELECT alamat, longitude, latitude FROM user WHERE id = ?; " ; 
+		$sql = "SELECT no_telp,alamat, longitude, latitude FROM user WHERE id = ?; " ; 
             return $this->db->query($sql, array($id))->first_row();
 	}
 	public function getMitraByID($id){
@@ -87,7 +88,7 @@ class Query extends CI_Model {
 
 	public function kirim($id)
 	{
-		$sql = "SELECT donasi.*, user.* FROM donasi JOIN user ON donasi.mitra_id = user.id WHERE donasi.relawan_id = ? AND donasi.is_verif = 1 AND (donasi.status_donasi = 3 or donasi.status_donasi = 4);"; 
+		$sql = "SELECT user.* ,donasi.* , donasi.id as lala FROM donasi JOIN user ON donasi.mitra_id = user.id WHERE donasi.relawan_id = ? AND donasi.is_verif = 1 AND (donasi.status_donasi = 3 or donasi.status_donasi = 4);"; 
 		return $this->db->query($sql, array($id))->result();
 	}
 
