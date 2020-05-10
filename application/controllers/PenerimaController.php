@@ -78,7 +78,8 @@ class PenerimaController extends CI_Controller {
 				$this->db->update('penerima_donasi');
 
                 $this->session->set_flashdata('message', array('type' => 'success', 'message' => ['Sukses Upload Bukti Makanan Diterima']));
-				return redirect(base_url('PenerimaController/riwayat_penerimaan'));	
+                return redirect(base_url('DonaturController/detail_donasi/'.$data['penerima']->id_donasi));
+				// return redirect(base_url('PenerimaController/riwayat_penerimaan'));	
             } catch(Exception $e){
                 $this->session->set_flashdata('message', array('type' => 'error', 'message' => [validation_errors()]));
 				$this->session->set_flashdata('post_data', $this->input->post(NULL, TRUE));

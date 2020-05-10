@@ -257,6 +257,9 @@ class DonaturController extends CI_Controller {
 
 	public function flag_kirim($id, $flag)
 	{
+		if ($flag == 2) {
+			return redirect(base_url('PenerimaController/upload_bukti/'.$id));
+		}
 		$this->db->set('flag_kirim', $flag);
         $this->db->where('id', $id);
 		$status = $this->db->update('penerima_donasi');
