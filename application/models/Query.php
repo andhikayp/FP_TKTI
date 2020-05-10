@@ -54,7 +54,7 @@ class Query extends CI_Model {
 	}
 
 	public function getDataMitra($id){
-		$sql = "SELECT no_telp,alamat, longitude, latitude FROM user WHERE id = ?; " ; 
+		$sql = "SELECT no_telp,alamat, longitude, latitude, nama FROM user WHERE id = ?; " ; 
             return $this->db->query($sql, array($id))->first_row();
 	}
 	public function getMitraByID($id){

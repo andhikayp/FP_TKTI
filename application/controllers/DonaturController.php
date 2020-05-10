@@ -68,7 +68,6 @@ class DonaturController extends CI_Controller {
 			$data['menu']=$this->query->getJumlahPesanan($this->input->post('id_menu'));
 			$data['mitra']=$this->query->getDataMitra($data['menu']->id_mitra);
 			$data['relawan']=$this->query->getRelawanOrderBy();
-			var_dump($data['relawan']);
 			$dt = new DateTime();
 			$harga_plus_gaji = (105/100) * $data['menu']->harga;
 
