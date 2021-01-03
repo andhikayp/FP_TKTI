@@ -38,7 +38,7 @@ class Auth extends CI_Controller {
 	}
 
 	function dologin() 
-	{ 
+	{
 		$status = $this->validation();
 		if($status == FALSE)
 		{
@@ -50,7 +50,7 @@ class Auth extends CI_Controller {
 		$namatabel ="user"; 
 		$user = $this->Authentikasi->check_login($namatabel, array('email' => $username), array('password' => $password));
 		if($user != FALSE) 
-		{ 	
+		{
 			$data_session = array(
 				'id' => $user->id,
 				'role' => $user->role,
